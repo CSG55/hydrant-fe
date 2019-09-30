@@ -6,14 +6,30 @@
 
 .App-logo {
   height: 40vmin;
-  zoom: 150%;
+  zoom: 200%;
 }
 
 .App-header {
   background-color: var(--hydrant-orange);
   border-style: solid;
-  border-width: 0px 0px 2px 0px
+  border-width: 0px 1px 2px 1px
 }
+
+.App-header.navbar-light .navbar-nav .nav-link {
+  color: var(--plain-black);
+}
+
+.App-header.navbar-light .navbar-nav .active>.nav-link,
+.App-header.navbar-light .navbar-nav .nav-link.active,
+.App-header.navbar-light .navbar-nav .nav-link.show,
+.App-header.navbar-light .navbar-nav .show>.nav-link{
+  color:var(--plain-white);
+  font-weight: 700;
+} 
+
+/* .App-header.navbar-light .navbar-nav .nav-link {
+  color: white;
+} */
 
 .App-body {
   /* background-color: #282c34; */
