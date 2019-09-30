@@ -1,3 +1,5 @@
+@import './variables.css';
+
 .App {
   text-align: center;
 }
@@ -7,7 +9,12 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--hydrant-orange);
+}
+
+.App-body {
+  /* background-color: #282c34; */
+  background-color: var(--hydrant-gray);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
