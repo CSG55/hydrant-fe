@@ -1,38 +1,53 @@
 @import './variables.css';
 
+/* aligning the base app to the center */
 .App {
   text-align: center;
 }
 
+/* Setting the height for the hydrant logo
+to be 80% of the lesser of the display's width/height.
+This saves us from using a @media query */
 .App-logo {
-  height: 40vmin;
-  zoom: 200%;
+  height: 80vmin;
 }
-
+/* Color for Header/NavBar. 
+Also defining a border around left, right, bottom of header */
 .App-header {
   background-color: var(--hydrant-orange);
   border-style: solid;
   border-width: 0px 1px 2px 1px
 }
 
+/* Sets base color of navigation buttons to black
+Overrides react-bootstrap's NavBar CSS */
 .App-header.navbar-light .navbar-nav .nav-link {
   color: var(--plain-black);
 }
 
+/* When navigation buttons are clicked, embolden them.
+Overrides react-bootstrap's NavBar CSS */ 
 .App-header.navbar-light .navbar-nav .active>.nav-link,
 .App-header.navbar-light .navbar-nav .nav-link.active,
-.App-header.navbar-light .navbar-nav .nav-link.show,
-.App-header.navbar-light .navbar-nav .show>.nav-link{
-  color:var(--plain-white);
-  font-weight: 700;
+.App-header.navbar-light .navbar-nav .nav-link.show {
+  font-weight: bolder;
 } 
 
-/* .App-header.navbar-light .navbar-nav .nav-link {
-  color: white;
+/* consider re-adding nav dropdown css if there is time */ 
+/* .App-header.navbar-light .navbar-nav .show>.nav-link {
+  color:black
 } */
 
+/* Set color of navigation list items to a reddish hue when hovering. 
+Overrides react-bootstrap's NavBar CSS */ 
+.App-header.navbar-light .navbar-nav .nav-link:hover {
+  background-color: var(--hydrant-faded-red);
+  color: var(--plain-black);
+}
+
+/* Design for the body of the app.
+Scales the contents to be centered, also based on the minimum of the user's display height/width.*/ 
 .App-body {
-  /* background-color: #282c34; */
   background-color: var(--hydrant-gray);
   min-height: 100vh;
   display: flex;
