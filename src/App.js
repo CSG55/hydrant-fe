@@ -7,7 +7,6 @@ function App() {
   return (
 <div className="App">
   <Navbar className = "App-header" expand="lg" >
-  {/* <Navbar expand="lg" variant="light" bg="light"> */}
 
     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />

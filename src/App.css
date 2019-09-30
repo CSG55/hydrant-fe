@@ -10,6 +10,8 @@
 
 .App-header {
   background-color: var(--hydrant-orange);
+  border-style: solid;
+  border-width: thin;
 }
 
 .App-body {
