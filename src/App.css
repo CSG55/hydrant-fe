@@ -6,12 +6,13 @@
 
 .App-logo {
   height: 40vmin;
+  zoom: 150%;
 }
 
 .App-header {
   background-color: var(--hydrant-orange);
   border-style: solid;
-  border-width: thin;
+  border-width: 0px 0px 2px 0px
 }
 
 .App-body {

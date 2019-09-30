@@ -1,13 +1,12 @@
 import React from 'react';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import logo from './logo.svg';
+import logo from './hydrant-logo.png';
 import './App.css';
 
 function App() {
   return (
 <div className="App">
   <Navbar className = "App-header" expand="lg" >
-
     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
