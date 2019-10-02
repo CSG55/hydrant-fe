@@ -1,7 +1,9 @@
 import React from 'react';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import logo from './hydrant-logo.png';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
+import SearchView from './SearchView';
+import Homepage from './Homepage';
 
 function App() {
   return (
@@ -23,21 +25,16 @@ function App() {
       </Nav>
     </Navbar.Collapse>
   </Navbar>
-
   <div className="App-body">
-    <img src={logo} className="App-logo" alt="logo" />
-    <p>
-      Edit <code>src/App.js</code> and save to reload.
-    </p>
-    <a
-      className="App-link"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Learn React
-    </a>
-  </div>
+    <BrowserRouter>
+      <Switch>
+      <Route exact path="/" component={Homepage} />
+      <Route exact path="/search" component={SearchView} />
+        {/* <Route path="/animals/fish" component={Fish} /> */}
+      </Switch>
+    </BrowserRouter>
+
+    </div>
 </div>
   );
 }
