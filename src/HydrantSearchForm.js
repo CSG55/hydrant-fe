@@ -14,7 +14,7 @@ class SearchView extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
    }
 
-   onSubmit(e){
+   onSubmit(e) {
     e.preventDefault();
     // An api call will be added here to submit these values
     console.log(this.state.searchName, this.state.searchRating);
