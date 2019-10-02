@@ -60,3 +60,12 @@ Scales the contents to be centered, also based on the minimum of the user's disp
 .App-link {
   color: #09d3ac;
 }
+
+/* Styles for the reusable form card. The size of the form card is dependent on the device's display */
+.hydrant-form-card {
+  width: 100vmin;
+}
+
+.hydrant-form-card .card-header {
+  background-color: var(--hydrant-faded-red)
+}

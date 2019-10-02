@@ -4,6 +4,8 @@
     --hydrant-beige: #efe1bb;
     --plain-white: #ffffff;
     --plain-black: #000000;
-    --hydrant-faded-red: rgba(255, 0, 0, 0.9)
+    --hydrant-faded-red: rgba(255, 0, 0, 0.9);
+    --hydrant-red: #9a1c1b;
+    --hydrant-dark-red: #4f0909;
   }
   
