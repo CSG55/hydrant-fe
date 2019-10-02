@@ -21,7 +21,7 @@ class SearchView extends React.Component {
             <Button variant="primary">Go somewhere</Button> */}
             <HydrantSearchForm/>
         </Card.Body>
-        <Card.Footer className="text-muted">2 days ago</Card.Footer>
+        {/* <Card.Footer className="text-muted">2 days ago</Card.Footer> */}
         </Card>      
         );
    }

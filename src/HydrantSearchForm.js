@@ -6,7 +6,7 @@ class SearchView extends React.Component {
       super();
       this.state = {
           searchName: "",
-          defaultRating: null,
+          searchRating: 'No filter',
       }
     console.log('Entered Search form');
     this.updateName = this.updateName.bind(this);
@@ -15,14 +15,15 @@ class SearchView extends React.Component {
    }
 
    onSubmit(e){
-       e.preventDefault();
-       console.log(this.state.searchName, this.state.searchRating);
+    e.preventDefault();
+    // An api call will be added here to submit these values
+    console.log(this.state.searchName, this.state.searchRating);
    }
    updateName(e) {
-       console.log('updateName', e.target.value);
-       this.setState({
-           searchName: e.target.value
-       });
+    console.log('updateName', e.target.value);
+    this.setState({
+        searchName: e.target.value
+    });
    }
 
    updateRating(e){
@@ -42,22 +43,23 @@ class SearchView extends React.Component {
                     type="text"
                     placeholder="Enter Hydrant's name..."
                     onChange={this.updateName}
-                    value={searchName}
+                    defaultValue={searchName}
                 />
             </FormGroup>
             <FormGroup controlId="hydrantSearchRating">
-                <FormLabel>Rating</FormLabel>
+                <FormLabel>Filter by Rating</FormLabel>
                 {/* consider replacing with actual stars */}
                 <FormControl 
                     as = "select"
                     onChange={this.updateRating}
-                    value={searchRating}
                 >
+                        <option selected>No filter</option>
                         <option>5 stars</option>
                         <option>4 stars</option>
                         <option>3 stars</option>
                         <option>2 stars</option>
                         <option>1 star</option>
+
                 </FormControl>
             </FormGroup>
 
