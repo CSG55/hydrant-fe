@@ -28,9 +28,8 @@ function App() {
   <div className="App-body">
     <BrowserRouter>
       <Switch>
-      <Route exact path="/" component={Homepage} />
       <Route exact path="/search" component={SearchView} />
-        {/* <Route path="/animals/fish" component={Fish} /> */}
+      <Route path="/" component={Homepage} />
       </Switch>
     </BrowserRouter>
 
