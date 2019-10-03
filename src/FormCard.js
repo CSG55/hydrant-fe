@@ -1,6 +1,5 @@
 import React from 'react';
-import {Card, Button} from 'react-bootstrap';
-import HydrantSearchForm from './HydrantSearchForm';
+import {Card} from 'react-bootstrap';
 
 class FormCard extends React.Component {
    constructor() {
