@@ -5,17 +5,17 @@ import HydrantSearchForm from './HydrantSearchForm';
 class FormCard extends React.Component {
    constructor() {
       super();
-    console.log('Entered Search view')
+    console.log('FormCard')
    }
 
    render() {
-    const {formMainText, formSubText} = this.props;
+    const {title, mainText, formSubText} = this.props;
     return (
     <div className="hydrant-form-card">
         <Card className="text-center">
-        <Card.Header>Hydrant Search</Card.Header>
+        <Card.Header>{title}</Card.Header>
         <Card.Body>
-            <Card.Title> {formMainText} </Card.Title> 
+            <Card.Title> {mainText} </Card.Title> 
             <Card.Text> {formSubText} </Card.Text>
             {this.props.children}
         </Card.Body>

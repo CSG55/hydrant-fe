@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import SearchView from './SearchView';
 import Homepage from './Homepage';
-
+import UserRegistration from './UserRegistration';
 function App() {
   return (
 <div className="App">
@@ -29,6 +29,7 @@ function App() {
     <BrowserRouter>
       <Switch>
       <Route exact path="/search" component={SearchView} />
+      <Route exact path="/register" component={UserRegistration} />
       <Route path="/" component={Homepage} />
       </Switch>
     </BrowserRouter>

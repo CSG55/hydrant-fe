@@ -66,6 +66,17 @@ Scales the contents to be centered, also based on the minimum of the user's disp
   width: 100vmin;
 }
 
+/* consistent coloring for all form headers */
 .hydrant-form-card .card-header {
   background-color: var(--hydrant-faded-red)
+}
+
+/* restricting text size to a smaller level for check box labels */
+.form-check {
+  font-size: calc(10px + 1vmin);
+}
+
+/* making checkbox more clickable */
+.form-check-input {
+  zoom:1.6;
 }

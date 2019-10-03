@@ -9,7 +9,7 @@ class RegistrationForm extends React.Component {
         email: "",
         searchRating: 'No filter',
       }
-    console.log('Entered Search form');
+    console.log('Entered Reg form');
     this.updateUsername = this.updateUsername.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -41,35 +41,37 @@ class RegistrationForm extends React.Component {
 }
 
    render() {
-        const {searchName, searchRating} = this.state;
+        const {username, email} = this.state;
         return (
-        <Form onSubmit={this.onSubmit}>
-            <FormGroup controlId="hydrantSearchName">
-                <FormLabel>Name</FormLabel>
+        <Form className="registration-form" onSubmit={this.onSubmit}>
+            <FormGroup controlId="username">
+                <FormLabel>Username</FormLabel>
                 <FormControl 
                     type="text"
-                    placeholder="Enter Hydrant's name..."
-                    onChange={this.updateName}
-                    defaultValue={searchName}
+                    placeholder="Enter a username..."
+                    onChange={this.updateUsername}
+                    defaultValue={username}
                 />
             </FormGroup>
-            <FormGroup controlId="hydrantSearchRating">
-                <FormLabel>Filter by Rating</FormLabel>
-                {/* consider replacing with actual stars */}
+            <FormGroup controlId="email">
+                <FormLabel>Email</FormLabel>
                 <FormControl 
-                    as = "select"
-                    onChange={this.updateRating}
-                >
-                        <option selected>No filter</option>
-                        <option>5 stars</option>
-                        <option>4 stars</option>
-                        <option>3 stars</option>
-                        <option>2 stars</option>
-                        <option>1 star</option>
-
-                </FormControl>
+                    type="email"
+                    placeholder="Enter your email..."
+                    onChange={this.updateEmail}
+                    defaultValue={email}
+                />
             </FormGroup>
-
+            <FormGroup controlId="agreement">
+            <Form.Check type="checkbox" label="I agree that fire hydrants are the greatest invention of all mankind." />
+            {/* <FormLabel>Terms of Use</FormLabel>
+            <FormControl 
+                type="checkbox"
+                label="You agree that fire hydrants are the greatest invention of all mankind."
+                onChange={this.updateEmail}
+                defaultValue={email}
+            /> */}
+            </FormGroup>
             <Button type="submit">
             Submit
             </Button>
