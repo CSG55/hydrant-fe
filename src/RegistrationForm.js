@@ -1,16 +1,17 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel} from 'react-bootstrap';
 
-class HydrantSearchForm extends React.Component {
+class RegistrationForm extends React.Component {
    constructor() {
       super();
       this.state = {
-          searchName: "",
-          searchRating: 'No filter',
+        username: "",
+        email: "",
+        searchRating: 'No filter',
       }
     console.log('Entered Search form');
-    this.updateName = this.updateName.bind(this);
-    this.updateRating = this.updateRating.bind(this);
+    this.updateUsername = this.updateUsername.bind(this);
+    this.updateEmail = this.updateEmail.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
    }
 
@@ -19,10 +20,16 @@ class HydrantSearchForm extends React.Component {
     // An api call will be added here to submit these values
     console.log(this.state.searchName, this.state.searchRating);
    }
-   updateName(e) {
-    console.log('updateName', e.target.value);
+   updateUsername(e) {
+    console.log('updateUsername', e.target.value);
     this.setState({
-        searchName: e.target.value
+        username: e.target.value
+    });
+   }
+   updateEmail(e) {
+    console.log('updateEmail', e.target.value);
+    this.setState({
+        email: e.target.value
     });
    }
 
@@ -70,4 +77,4 @@ class HydrantSearchForm extends React.Component {
         );
    }
 }
-export default HydrantSearchForm;
+export default RegistrationForm;
