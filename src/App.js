@@ -34,7 +34,7 @@ function App() {
       </Switch>
     </BrowserRouter>
 
-    </div>
+  </div>
 </div>
   );
 }

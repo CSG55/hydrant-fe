@@ -7,18 +7,20 @@ class RegistrationForm extends React.Component {
       this.state = {
         username: "",
         email: "",
-        searchRating: 'No filter',
+        firstName: "",
       }
     console.log('Entered Reg form');
     this.updateUsername = this.updateUsername.bind(this);
+    this.updateFirstName = this.updateFirstName.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
+    this.updateTerms = this.updateTerms.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
    }
 
    onSubmit(e) {
     e.preventDefault();
     // An api call will be added here to submit these values
-    console.log(this.state.searchName, this.state.searchRating);
+    console.log(this.state);
    }
    updateUsername(e) {
     console.log('updateUsername', e.target.value);
@@ -26,6 +28,13 @@ class RegistrationForm extends React.Component {
         username: e.target.value
     });
    }
+   updateFirstName(e) {
+    console.log('updateFirstName', e.target.value);
+    this.setState({
+        firstName: e.target.value
+    });
+   }
+
    updateEmail(e) {
     console.log('updateEmail', e.target.value);
     this.setState({
@@ -33,15 +42,15 @@ class RegistrationForm extends React.Component {
     });
    }
 
-   updateRating(e){
-    console.log('updateRating', e.target.value);
+   updateTerms(e){
+    console.log('updateTerms', e.target.checked);
     this.setState({
-        searchRating: e.target.value
+        acceptTerms: e.target.checked
     });
 }
 
    render() {
-        const {username, email} = this.state;
+        const {username, email, firstName} = this.state;
         return (
         <Form className="registration-form" onSubmit={this.onSubmit}>
             <FormGroup controlId="username">
@@ -51,6 +60,15 @@ class RegistrationForm extends React.Component {
                     placeholder="Enter a username..."
                     onChange={this.updateUsername}
                     defaultValue={username}
+                />
+            </FormGroup>
+            <FormGroup controlId="firstName">
+                <FormLabel>First Name</FormLabel>
+                <FormControl 
+                    type="text"
+                    placeholder="Enter your First Name..."
+                    onChange={this.updateFirstName}
+                    defaultValue={firstName}
                 />
             </FormGroup>
             <FormGroup controlId="email">
@@ -63,14 +81,10 @@ class RegistrationForm extends React.Component {
                 />
             </FormGroup>
             <FormGroup controlId="agreement">
-            <Form.Check type="checkbox" label="I agree that fire hydrants are the greatest invention of all mankind." />
-            {/* <FormLabel>Terms of Use</FormLabel>
-            <FormControl 
-                type="checkbox"
-                label="You agree that fire hydrants are the greatest invention of all mankind."
-                onChange={this.updateEmail}
-                defaultValue={email}
-            /> */}
+                <Form.Check
+                    type="checkbox"
+                    onChange={this.updateTerms}
+                    label="I agree that hydrants are the greatest invention of all mankind." />
             </FormGroup>
             <Button type="submit">
             Submit
