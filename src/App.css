@@ -3,6 +3,11 @@
 /* aligning the base app to the center */
 .App {
   text-align: center;
+  position: relative;
+  min-height: 100vh;
+
+  /* padding-bottom:60px; */
+
 }
 
 /* Setting the height for the hydrant logo
@@ -49,12 +54,28 @@ Overrides react-bootstrap's NavBar CSS */
 Scales the contents to be centered, also based on the minimum of the user's display height/width.*/ 
 .App-body {
   background-color: var(--hydrant-gray);
-  min-height: 100vh;
+  min-height: 90vmax;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  padding-bottom: 10vmax; /* padding matches height of footer */
+}
+
+/* Color for Header/NavBar. 
+Also defining a border around left, right, bottom of header */
+.App-footer {
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+  background-color: var(--hydrant-orange);
+  border-style: solid;
+  border-color: var(--plain-black);
+  border-width: 2px 1px 0px 1px;
+  height: 10vmax; /* size of the footer */
+
 }
 
 .App-link {

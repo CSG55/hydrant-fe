@@ -28,12 +28,15 @@ function App() {
   <div className="App-body">
     <BrowserRouter>
       <Switch>
-      <Route exact path="/search" component={SearchView} />
-      <Route exact path="/register" component={UserRegistration} />
-      <Route path="/" component={Homepage} />
+        <Route exact path="/hydrant/:id(\d+)" component={SearchView} />
+        <Route exact path="/search" component={SearchView} />
+        <Route exact path="/register" component={UserRegistration} />
+        <Route path="/" component={Homepage} />
       </Switch>
     </BrowserRouter>
-
+  </div>
+  <div className="App-footer">
+    
   </div>
 </div>
   );

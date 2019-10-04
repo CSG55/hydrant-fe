@@ -64,7 +64,7 @@ class HydrantSearchForm extends React.Component {
             </FormGroup>
 
             <Button type="submit">
-            Submit
+                Submit
             </Button>
         </Form>
         );
