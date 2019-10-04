@@ -5,26 +5,11 @@ import './App.css';
 import SearchView from './SearchView';
 import Homepage from './Homepage';
 import UserRegistration from './UserRegistration';
+import HydrantNavbar from './HydrantNavbar';
 function App() {
   return (
 <div className="App">
-  <Navbar className = "App-header" expand="lg" >
-    <Navbar.Brand href="#home">Hydrant</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="mr-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#link">Link</Nav.Link>
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-        </NavDropdown>
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
+  <HydrantNavbar/>
   <div className="App-body">
     <BrowserRouter>
       <Switch>
@@ -36,7 +21,7 @@ function App() {
     </BrowserRouter>
   </div>
   <div className="App-footer">
-    
+
   </div>
 </div>
   );
