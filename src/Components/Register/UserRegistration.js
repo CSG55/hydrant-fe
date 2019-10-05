@@ -1,6 +1,6 @@
 import React from 'react';
 import RegistrationForm from './RegistrationForm';
-import FormCard from './FormCard';
+import FormCard from '../../common/FormCard';
 
 class SearchView extends React.Component {
    constructor() {

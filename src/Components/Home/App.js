@@ -1,10 +1,9 @@
 import React from 'react';
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './App.css';
-import SearchView from './SearchView';
+import '../../css/App.css';
+import SearchView from '../Search/SearchView';
 import Homepage from './Homepage';
-import UserRegistration from './UserRegistration';
+import UserRegistration from '../Register/UserRegistration';
 import HydrantNavbar from './HydrantNavbar';
 function App() {
   return (

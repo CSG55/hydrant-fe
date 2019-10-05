@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './hydrant-logo.png';
+import logo from '../../common/hydrant-logo.png';
 
 class SearchView extends React.Component {
    constructor() {

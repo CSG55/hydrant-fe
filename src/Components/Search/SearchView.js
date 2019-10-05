@@ -1,6 +1,6 @@
 import React from 'react';
 import HydrantSearchForm from './HydrantSearchForm';
-import FormCard from './FormCard';
+import FormCard from '../../common/FormCard';
 
 class SearchView extends React.Component {
    constructor() {
