@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import '../../css/App.css';
 import SearchView from '../Search/SearchView';
+import HydrantViewer from '../Hydrants/HydrantViewer';
 import Homepage from './Homepage';
 import UserRegistration from '../Register/UserRegistration';
 import HydrantNavbar from './HydrantNavbar';
@@ -12,7 +13,7 @@ function App() {
   <div className="App-body">
     <BrowserRouter>
       <Switch>
-        <Route exact path="/hydrant/:id(\d+)" component={SearchView} />
+        <Route exact path="/hydrant/:id(\d+)" component={HydrantViewer} />
         <Route exact path="/search" component={SearchView} />
         <Route exact path="/register" component={UserRegistration} />
         <Route path="/" component={Homepage} />
