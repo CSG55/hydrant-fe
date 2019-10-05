@@ -6,6 +6,7 @@
   position: relative;
   min-height: 100vh;
 
+  /* width:100%; */
   /* padding-bottom:60px; */
 
 }
@@ -100,4 +101,9 @@ Also defining a border around left, right, bottom of header */
 /* making checkbox more clickable */
 .form-check-input {
   zoom:1.6;
+}
+
+iframe {
+  display:block;
+  width:100%;
 }
