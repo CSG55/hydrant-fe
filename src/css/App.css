@@ -76,7 +76,7 @@ Also defining a border around left, right, bottom of header */
   border-color: var(--plain-black);
   border-width: 2px 1px 0px 1px;
   height: 10vmax; /* size of the footer */
-
+  overflow: auto;
 }
 
 .App-link {

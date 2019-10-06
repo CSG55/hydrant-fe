@@ -105,7 +105,6 @@ class CreateHydrantForm extends React.Component {
             </FormGroup>
             <FormGroup controlId="latlong">
                 <FormLabel>Location</FormLabel>
-
             </FormGroup>
 
             <Button type="submit">
