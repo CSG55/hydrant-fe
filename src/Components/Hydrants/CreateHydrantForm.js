@@ -5,13 +5,13 @@ class CreateHydrantForm extends React.Component {
    constructor() {
       super();
       this.state = {
-        username: "",
-        email: "",
+        name: "",
+        description: "",
         firstName: "",
       }
     console.log('Entered Reg form');
-    this.updateUsername = this.updateUsername.bind(this);
-    this.updateFirstName = this.updateFirstName.bind(this);
+    this.updateName = this.updateName.bind(this);
+    this.updateDescription = this.updateDescription.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
     this.updateTerms = this.updateTerms.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -22,16 +22,16 @@ class CreateHydrantForm extends React.Component {
     // An api call will be added here to submit these values
     console.log(this.state);
    }
-   updateUsername(e) {
-    console.log('updateUsername', e.target.value);
+   updateName(e) {
+    console.log('updateName', e.target.value);
     this.setState({
-        username: e.target.value
+        name: e.target.value
     });
    }
-   updateFirstName(e) {
-    console.log('updateFirstName', e.target.value);
+   updateDescription(e) {
+    console.log('updateDescription', e.target.value);
     this.setState({
-        firstName: e.target.value
+        description: e.target.value
     });
    }
 
@@ -50,25 +50,25 @@ class CreateHydrantForm extends React.Component {
 }
 
    render() {
-        const {username, email, firstName} = this.state;
+        const {name, description, email, firstName} = this.state;
         return (
-        <Form className="registration-form" onSubmit={this.onSubmit}>
-            <FormGroup controlId="username">
-                <FormLabel>Username</FormLabel>
+        <Form className="hydrant-editor" onSubmit={this.onSubmit}>
+            <FormGroup controlId="name">
+                <FormLabel>Hydrant Name</FormLabel>
                 <FormControl 
                     type="text"
-                    placeholder="Enter a username..."
-                    onChange={this.updateUsername}
-                    defaultValue={username}
+                    placeholder="Name your hydrant..."
+                    onChange={this.updateName}
+                    defaultValue={name}
                 />
             </FormGroup>
-            <FormGroup controlId="firstName">
-                <FormLabel>First Name</FormLabel>
+            <FormGroup controlId="descripton">
+                <FormLabel>Hydrant Description</FormLabel>
                 <FormControl 
-                    type="text"
-                    placeholder="Enter your First Name..."
+                    as="textarea"
+                    placeholder="Enter your Hydrant description..."
                     onChange={this.updateFirstName}
-                    defaultValue={firstName}
+                    defaultValue={description}
                 />
             </FormGroup>
             <FormGroup controlId="email">
