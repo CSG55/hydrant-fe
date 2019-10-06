@@ -50,7 +50,7 @@ class HydrantResultsPage extends React.Component {
                 data={ mockTableData } 
                 columns={ columns } 
             />
-            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1AD8yJVFaA4LoiyKHvOUH8M4qsE68B4xG" width="640" height="480"></iframe>
+            <iframe title="fake-map" src="https://www.google.com/maps/d/u/0/embed?mid=1AD8yJVFaA4LoiyKHvOUH8M4qsE68B4xG" width="640" height="480"></iframe>
         </FlexContainer>
     );
    }

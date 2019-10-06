@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel} from 'react-bootstrap';
-import ImageUploader from 'react-images-upload';
+// import ImageUploader from 'react-images-upload';
 
 class CreateHydrantForm extends React.Component {
    constructor() {

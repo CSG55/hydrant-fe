@@ -34,11 +34,11 @@ class HydrantViewer extends React.Component {
             <Card className="text-center">
                 <Card.Title> Old Johnny</Card.Title>
                 <Card.Text> Old Johnny is from San Juan, Puerto Rico. </Card.Text>
-                {/* <Card.Img variant="top" src={sample_hydrant} alt="sample hydrant" /> */}
+                {/* <Card.Img variant="top" src={sample_hydrant} alt="old sample hydrant from Puerto Rico" /> */}
             </Card>
             <Card className="text-center">
                 <Card.Title> Image</Card.Title>
-                <Card.Img variant="top" src={sample_hydrant} alt="sample hydrant" />
+                <Card.Img variant="top" src={sample_hydrant} alt="old sample hydrant from Puerto Rico" />
             </Card>
             <Card className="text-center">
                 <Card.Title> Location </Card.Title>

@@ -129,6 +129,12 @@ however we want to maximize used-space on mobile-view*/
 }
 
 /* we want a margin around our table when it is in a container */
-.container-style .react-bootstrap-table{
+.container-style .react-bootstrap-table {
   margin:5px;
 }
+
+.background {
+  background-image: url("/hydrant-pattern-background.png");
+  }
+  
+  

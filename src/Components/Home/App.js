@@ -7,11 +7,13 @@ import Homepage from './Homepage';
 import UserRegistration from '../Register/UserRegistration';
 import CreateHydrantForm from '../Hydrants/HydrantEditor';
 import HydrantNavbar from './HydrantNavbar';
+
 function App() {
   return (
 <div className="App">
   <HydrantNavbar/>
-  <div className="App-body">
+  {/* <img className="background" src="/hydrant-pattern-background.png" alt="red hydrant patten over white background color"/> */}
+  <div className="App-body background">
     <BrowserRouter>
       <Switch>
         <Route exact path="/hydrant/:id(\d+)" component={HydrantViewer} />
