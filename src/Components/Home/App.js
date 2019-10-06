@@ -13,7 +13,7 @@ function App() {
 <div className="App">
   <HydrantNavbar/>
   {/* <img className="background" src="/hydrant-pattern-background.png" alt="red hydrant patten over white background color"/> */}
-  <div className="App-body background">
+  <div className="App-body">
     <BrowserRouter>
       <Switch>
         <Route exact path="/hydrant/:id(\d+)" component={HydrantViewer} />

@@ -55,13 +55,13 @@ Overrides react-bootstrap's NavBar CSS */
 Scales the contents to be centered, also based on the minimum of the user's display height/width.*/ 
 .App-body {
   background-color: var(--hydrant-gray);
-  min-height: 90vmax;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  padding-bottom: 10vmax; /* padding matches height of footer */
+  padding-bottom: 10vh; /* padding matches height of footer */
 }
 
 /* Color for Header/NavBar. 
@@ -75,7 +75,7 @@ Also defining a border around left, right, bottom of header */
   border-style: solid;
   border-color: var(--plain-black);
   border-width: 2px 1px 0px 1px;
-  height: 10vmax; /* size of the footer */
+  height: 10vh; /* size of the footer */
   overflow: auto;
 }
 
