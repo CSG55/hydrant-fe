@@ -107,3 +107,8 @@ iframe {
   display:block;
   width:100%;
 }
+
+.block-centered {
+  display: block;
+  margin: 0 auto;
+}
