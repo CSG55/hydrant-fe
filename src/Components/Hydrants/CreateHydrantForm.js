@@ -17,17 +17,17 @@ class CreateHydrantForm extends React.Component {
     this.updateEmail = this.updateEmail.bind(this);
     this.updatePhoto = this.updatePhoto.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.onDrop = this.onDrop.bind(this);
+    // this.updatePhotos = this.updatePhotos.bind(this);
 
    }
 
     
-   onDrop(picture) {
-       console.log(picture);
-    this.setState({
-        pictures: this.state.pictures.concat(picture),
-    });
-}
+//    updatePhotos(picture) {
+//     console.log(picture);
+//     this.setState({
+//         pictures: this.state.pictures.concat(picture),
+//     });
+// }
 
    onSubmit(e) {
     e.preventDefault();
@@ -94,15 +94,16 @@ class CreateHydrantForm extends React.Component {
             </FormGroup>
             <FormGroup controlId="photos">
                 <FormLabel>Photos</FormLabel>
-                {/* <FormControl name="images[]" type="file" onChange={this.updatePhoto}/> */}
-                <ImageUploader
+                <FormControl name="images[]" type="file" onChange={this.updatePhoto}/>
+                {/* <ImageUploader
+                    singleImage={true}
                     withIcon={true}
                     buttonText='Choose images'
-                    onChange={this.onDrop}
+                    onChange={this.updatePhotos}
                     imgExtension={['.jpg', '.gif', '.png', '.gif']}
                     maxFileSize={5242880}
                     withPreview={true}
-            />
+            /> */}
             </FormGroup>
 
             <Button type="submit">
