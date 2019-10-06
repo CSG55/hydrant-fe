@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel} from 'react-bootstrap';
+import ImageUploader from 'react-images-upload';
 
 class CreateHydrantForm extends React.Component {
    constructor() {
@@ -8,14 +9,25 @@ class CreateHydrantForm extends React.Component {
         name: "",
         description: "",
         firstName: "",
+        pictures: [],
+
       }
-    console.log('Entered Reg form');
     this.updateName = this.updateName.bind(this);
     this.updateDescription = this.updateDescription.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
-    this.updateTerms = this.updateTerms.bind(this);
+    this.updatePhoto = this.updatePhoto.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onDrop = this.onDrop.bind(this);
+
    }
+
+    
+   onDrop(picture) {
+       console.log(picture);
+    this.setState({
+        pictures: this.state.pictures.concat(picture),
+    });
+}
 
    onSubmit(e) {
     e.preventDefault();
@@ -42,10 +54,10 @@ class CreateHydrantForm extends React.Component {
     });
    }
 
-   updateTerms(e){
-    console.log('updateTerms', e.target.checked);
+   updatePhoto(e){
+    console.log('updatePhoto', e.target.value);
     this.setState({
-        acceptTerms: e.target.checked
+        pictures: e.target.files
     });
 }
 
@@ -62,8 +74,8 @@ class CreateHydrantForm extends React.Component {
                     defaultValue={name}
                 />
             </FormGroup>
-            <FormGroup controlId="descripton">
-                <FormLabel>Hydrant Description</FormLabel>
+            <FormGroup controlId="image">
+                <FormLabel>Image</FormLabel>
                 <FormControl 
                     as="textarea"
                     placeholder="Enter your Hydrant description..."
@@ -80,12 +92,19 @@ class CreateHydrantForm extends React.Component {
                     defaultValue={email}
                 />
             </FormGroup>
-            <FormGroup controlId="agreement">
-                <Form.Check
-                    type="checkbox"
-                    onChange={this.updateTerms}
-                    label="I agree that hydrants are the greatest invention of all mankind." />
+            <FormGroup controlId="photos">
+                <FormLabel>Photos</FormLabel>
+                {/* <FormControl name="images[]" type="file" onChange={this.updatePhoto}/> */}
+                <ImageUploader
+                    withIcon={true}
+                    buttonText='Choose images'
+                    onChange={this.onDrop}
+                    imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                    maxFileSize={5242880}
+                    withPreview={true}
+            />
             </FormGroup>
+
             <Button type="submit">
             Submit
             </Button>
