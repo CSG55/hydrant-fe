@@ -9,7 +9,6 @@ class HydrantResultsPage extends React.Component {
    }
 
    render() {
-
     
     const columns= [{
         dataField: 'id',
@@ -43,7 +42,13 @@ class HydrantResultsPage extends React.Component {
       ];
 
       return (
-        <div className="container">
+
+        <div class="d-flex flex-sm-row flex-column">
+            <BootstrapTable
+                keyField='id'
+                data={ mockTableData } 
+                columns={ columns } 
+            />
             <BootstrapTable
                 keyField='id'
                 data={ mockTableData } 

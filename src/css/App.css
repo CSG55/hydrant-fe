@@ -112,3 +112,7 @@ iframe {
   display: block;
   margin: 0 auto;
 }
+
+.react-bootstrap-table{
+  background-color:white;
+}
