@@ -15,9 +15,10 @@ class HydrantSearchForm extends React.Component {
    }
 
    onSubmit(e) {
+    const {searchName, searchRating} = this.state;
     e.preventDefault();
-    // An api call will be added here to submit these values
-    console.log(this.state.searchName, this.state.searchRating);
+    console.log(searchName, searchRating);
+    this.props.onSubmit({ searchName, searchRating });
    }
    updateName(e) {
     console.log('updateName', e.target.value);
@@ -53,7 +54,7 @@ class HydrantSearchForm extends React.Component {
                     as = "select"
                     onChange={this.updateRating}
                 >
-                        <option selected>No filter</option>
+                        <option defaultValue>No filter</option>
                         <option>5 stars</option>
                         <option>4 stars</option>
                         <option>3 stars</option>
