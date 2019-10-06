@@ -5,6 +5,7 @@ import SearchView from '../Search/SearchView';
 import HydrantViewer from '../Hydrants/HydrantViewer';
 import Homepage from './Homepage';
 import UserRegistration from '../Register/UserRegistration';
+import CreateHydrantForm from '../Hydrants/HydrantEditor';
 import HydrantNavbar from './HydrantNavbar';
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/hydrant/:id(\d+)" component={HydrantViewer} />
         <Route exact path="/search" component={SearchView} />
         <Route exact path="/register" component={UserRegistration} />
+        <Route exact path="/create" component={CreateHydrantForm} />
         <Route path="/" component={Homepage} />
       </Switch>
     </BrowserRouter>
