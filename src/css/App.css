@@ -103,6 +103,7 @@ Also defining a border around left, right, bottom of header */
   zoom:1.6;
 }
 
+/* This is necessary to prevent iframe from overextending its container */
 iframe {
   display:block;
   width:100%;
@@ -113,6 +114,21 @@ iframe {
   margin: 0 auto;
 }
 
-.react-bootstrap-table{
-  background-color:white;
+/* Color and padding to containers, including the FlexContainer */
+.container-style{
+  padding: 5px;
+  background-color:var(--plain-white);
+}
+
+/* We want to have a margin for our flexbox on the desktop site, 
+however we want to maximize used-space on mobile-view*/
+@media (min-width: 576px){
+  .container-style{
+    margin: 10px;
+  }
+}
+
+/* we want a margin around our table when it is in a container */
+.container-style .react-bootstrap-table{
+  margin:5px;
 }

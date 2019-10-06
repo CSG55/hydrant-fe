@@ -1,6 +1,7 @@
 import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import FlexContainer from '../../common/FlexContainer';
 
 class HydrantResultsPage extends React.Component {
    constructor() {
@@ -17,10 +18,10 @@ class HydrantResultsPage extends React.Component {
       },
       {
         dataField: 'name',
-        text: 'Hydrant Name'
+        text: 'Name'
       }, {
         dataField: 'rating',
-        text: 'Hydrant Rating',
+        text: 'Rating',
       }];
   
       const mockTableData = [
@@ -43,7 +44,7 @@ class HydrantResultsPage extends React.Component {
 
       return (
 
-        <div class="d-flex flex-sm-row flex-column">
+        <FlexContainer>
             <BootstrapTable
                 keyField='id'
                 data={ mockTableData } 
@@ -54,7 +55,7 @@ class HydrantResultsPage extends React.Component {
                 data={ mockTableData } 
                 columns={ columns } 
             />
-        </div>
+        </FlexContainer>
     );
    }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import {Card} from 'react-bootstrap';
 import sample_hydrant from '../../common/old-johnny4.jpg';
 import ReactStars from 'react-stars'
+import FlexContainer from '../../common/FlexContainer';
 
 
 const ReviewBox = ({name, count, review}) => {
@@ -29,7 +30,7 @@ class HydrantViewer extends React.Component {
 
    render() {
     return (
-        <div class="d-flex flex-sm-row flex-column">
+        <FlexContainer>
             <Card className="text-center">
                 <Card.Title> Old Johnny</Card.Title>
                 <Card.Text> Old Johnny is from San Juan, Puerto Rico. </Card.Text>
@@ -53,7 +54,7 @@ class HydrantViewer extends React.Component {
                 <ReviewBox name="Steve Bennett" rating={2} review={"They put this in my parking spot! At least it looks vintage..."}/>
                 {/* </Card.Body> */}
             </Card>
-        </div>
+        </FlexContainer>
         );
    }
 }
