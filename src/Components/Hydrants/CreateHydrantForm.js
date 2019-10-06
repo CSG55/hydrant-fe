@@ -8,20 +8,18 @@ class CreateHydrantForm extends React.Component {
       this.state = {
         name: "",
         description: "",
-        firstName: "",
+        latLong: "",
         pictures: [],
 
       }
     this.updateName = this.updateName.bind(this);
     this.updateDescription = this.updateDescription.bind(this);
-    this.updateEmail = this.updateEmail.bind(this);
+    this.updateLatLong = this.updateLatLong.bind(this);
     this.updatePhoto = this.updatePhoto.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     // this.updatePhotos = this.updatePhotos.bind(this);
-
    }
 
-    
 //    updatePhotos(picture) {
 //     console.log(picture);
 //     this.setState({
@@ -47,10 +45,10 @@ class CreateHydrantForm extends React.Component {
     });
    }
 
-   updateEmail(e) {
-    console.log('updateEmail', e.target.value);
+   updateLatLong(e) {
+    console.log('updateLatLong', e.target.value);
     this.setState({
-        email: e.target.value
+        latLong: e.target.value
     });
    }
 
@@ -62,7 +60,7 @@ class CreateHydrantForm extends React.Component {
 }
 
    render() {
-        const {name, description, email, firstName} = this.state;
+        const {name, description, latLong} = this.state;
         return (
         <Form className="hydrant-editor" onSubmit={this.onSubmit}>
             <FormGroup controlId="name">
@@ -83,13 +81,13 @@ class CreateHydrantForm extends React.Component {
                     defaultValue={description}
                 />
             </FormGroup>
-            <FormGroup controlId="email">
-                <FormLabel>Email</FormLabel>
+            <FormGroup controlId="latLong">
+                <FormLabel>Latitude and Logitude</FormLabel>
                 <FormControl 
-                    type="email"
-                    placeholder="Enter your email..."
-                    onChange={this.updateEmail}
-                    defaultValue={email}
+                    type="text"
+                    placeholder="Enter the coordinates of your Hydrant..."
+                    onChange={this.updateLatLong}
+                    defaultValue={latLong}
                 />
             </FormGroup>
             <FormGroup controlId="photos">
@@ -104,6 +102,10 @@ class CreateHydrantForm extends React.Component {
                     maxFileSize={5242880}
                     withPreview={true}
             /> */}
+            </FormGroup>
+            <FormGroup controlId="latlong">
+                <FormLabel>Location</FormLabel>
+
             </FormGroup>
 
             <Button type="submit">
