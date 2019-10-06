@@ -6,11 +6,10 @@ import FlexContainer from '../../common/FlexContainer';
 class HydrantResultsPage extends React.Component {
    constructor(props) {
       super(props);
-    console.log('in HydrantResultsPage ')
+      console.log('in HydrantResultsPage ')
    }
 
    render() {
-    
     const columns= [{
         dataField: 'id',
         text: 'Hydrant ID',

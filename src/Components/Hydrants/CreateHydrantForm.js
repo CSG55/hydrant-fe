@@ -28,9 +28,10 @@ class CreateHydrantForm extends React.Component {
 // }
 
    onSubmit(e) {
+    const {name, description, latLong, pictures} = this.state;
     e.preventDefault();
-    // An api call will be added here to submit these values
     console.log(this.state);
+    this.props.handleSubmit({name, description, latLong, pictures})
    }
    updateName(e) {
     console.log('updateName', e.target.value);
@@ -103,10 +104,6 @@ class CreateHydrantForm extends React.Component {
                     withPreview={true}
             /> */}
             </FormGroup>
-            <FormGroup controlId="latlong">
-                <FormLabel>Location</FormLabel>
-            </FormGroup>
-
             <Button type="submit">
             Submit
             </Button>
