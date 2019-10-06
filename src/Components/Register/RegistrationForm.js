@@ -2,8 +2,8 @@ import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel} from 'react-bootstrap';
 
 class RegistrationForm extends React.Component {
-   constructor() {
-      super();
+   constructor(props) {
+      super(props);
       this.state = {
         username: "",
         email: "",
@@ -18,9 +18,11 @@ class RegistrationForm extends React.Component {
    }
 
    onSubmit(e) {
+    const {username, email, firstName} = this.state;
     e.preventDefault();
     // An api call will be added here to submit these values
     console.log(this.state);
+    this.props.handleSubmit({username, email, firstName});
    }
    updateUsername(e) {
     console.log('updateUsername', e.target.value);

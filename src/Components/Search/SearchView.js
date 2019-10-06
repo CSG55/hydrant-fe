@@ -4,8 +4,8 @@ import HydrantResultsPage from './HydrantResultsPage';
 import FormCard from '../../common/FormCard';
 
 class SearchView extends React.Component {
-   constructor() {
-      super();
+   constructor(props) {
+      super(props);
       this.state = {
          showResults: false,
       }

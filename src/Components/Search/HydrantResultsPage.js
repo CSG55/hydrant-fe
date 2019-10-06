@@ -4,8 +4,8 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import FlexContainer from '../../common/FlexContainer';
 
 class HydrantResultsPage extends React.Component {
-   constructor() {
-      super();
+   constructor(props) {
+      super(props);
     console.log('in HydrantResultsPage ')
    }
 

@@ -15,6 +15,7 @@ class HydrantNavbar extends React.Component {
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/register">Register</Nav.Link>
                     <Nav.Link href="/search">Search</Nav.Link>
+                    <Nav.Link href="/create">Create</Nav.Link>
                     <NavDropdown title="Sample Pages" id="basic-nav-dropdown">
                     <NavDropdown.Item href="hydrant/1">Sample Hydrant</NavDropdown.Item>
                     </NavDropdown>
