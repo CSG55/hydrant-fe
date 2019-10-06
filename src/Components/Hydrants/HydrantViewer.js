@@ -24,7 +24,7 @@ const ReviewBox = ({name, count, review}) => {
 
 class HydrantViewer extends React.Component {
    constructor() {
-      super();
+       super();
     console.log('HydrantViewer')
    }
 

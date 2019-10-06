@@ -1,13 +1,7 @@
 import React from 'react';
 import logo from '../../common/hydrant-logo.png';
 
-class SearchView extends React.Component {
-   constructor() {
-      super();
-    //   this.state = {}
-    console.log('Entered Search view')
-   }
-
+class Homepage extends React.Component {
    render() {
       return (
          <div>
@@ -27,4 +21,4 @@ class SearchView extends React.Component {
       );
    }
 }
-export default SearchView;
+export default Homepage;
