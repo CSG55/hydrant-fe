@@ -12,7 +12,6 @@ function App() {
   return (
 <div className="App">
   <HydrantNavbar/>
-  {/* <img className="background" src="/hydrant-pattern-background.png" alt="red hydrant patten over white background color"/> */}
   <div className="App-body">
     <BrowserRouter>
       <Switch>
