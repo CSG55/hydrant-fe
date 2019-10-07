@@ -42,15 +42,17 @@ class HydrantResultsPage extends React.Component {
       ];
 
       return (
-
-        <FlexContainer>
-            <BootstrapTable
-                keyField='id'
-                data={ mockTableData } 
-                columns={ columns } 
-            />
-            <iframe title="fake-map" src="https://www.google.com/maps/d/u/0/embed?mid=1AD8yJVFaA4LoiyKHvOUH8M4qsE68B4xG" width="640" height="480"></iframe>
-        </FlexContainer>
+        <React.Fragment>
+          <h1 className="light"> Sample Results Page</h1>
+          <FlexContainer>
+              <BootstrapTable
+                  keyField='id'
+                  data={ mockTableData } 
+                  columns={ columns } 
+              />
+              <iframe title="fake-map" src="https://www.google.com/maps/d/u/0/embed?mid=1AD8yJVFaA4LoiyKHvOUH8M4qsE68B4xG" width="640" height="480"></iframe>
+          </FlexContainer>
+        </React.Fragment>
     );
    }
 }
