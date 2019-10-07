@@ -6,6 +6,9 @@ Kareem Khaled
 CS 4WW3
 Worked on Add-on Task #2, answers are under **Bonus Add on #1**
 
+**Hosting URL**
+http://ec2-3-14-144-170.us-east-2.compute.amazonaws.com:3000
+
 **Why I chose React**
 
 After reading the Specifications for this project, I realized that there was an opportunity to recycle various pieces of this application. We have to use a flexbox- Oh we can make a general component for that. Consistent Theme - React can do that without repeating code multiple times. Profiles for some Geolocated object - We can make a Component for that. 
