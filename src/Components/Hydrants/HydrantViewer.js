@@ -43,6 +43,15 @@ class HydrantViewer extends React.Component {
                     <Card.Img variant="top" src={sample_hydrant} alt="old sample hydrant from Puerto Rico" />
                 </Card>
                 <Card className="text-center">
+                    <Card.Title> Reviews </Card.Title>
+                    {/* <Card.Body>  */}
+                    <ReviewBox name="John Smith" rating={5} review={"This hydrant saved my massive bourgeois mansion from a snowstorm!"}/>
+                    <ReviewBox name="Steve Bennett" rating={2} review={"They put this in my parking spot! At least it looks vintage..."}/>
+                    {/* </Card.Body> */}
+                </Card>
+            </FlexContainer>
+            <FlexContainer>
+                <Card className="text-center">
                     <Card.Title> Location </Card.Title>
                     <Card.Text> Old Johnny is from San Juan, Puerto Rico </Card.Text>
                     <Card.Body> 
@@ -50,12 +59,10 @@ class HydrantViewer extends React.Component {
                     </Card.Body>
                 </Card>
                 <Card className="text-center">
-                    <Card.Title> Reviews </Card.Title>
-                    {/* <Card.Body>  */}
-                    <ReviewBox name="John Smith" rating={5} review={"This hydrant saved my massive bourgeois mansion from a snowstorm!"}/>
-                    <ReviewBox name="Steve Bennett" rating={2} review={"They put this in my parking spot! At least it looks vintage..."}/>
-                    {/* </Card.Body> */}
+                    <Card.Title> Video </Card.Title>
+                    <Card.Img variant="top" src={sample_hydrant} alt="old sample hydrant from Puerto Rico" />
                 </Card>
+
             </FlexContainer>
         </React.Fragment>
         );
