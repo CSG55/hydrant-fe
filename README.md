@@ -4,7 +4,7 @@
 Kareem Khaled
 400032153
 CS 4WW3
-Worked on Add-on Task #2, answers are under **Bonus Add on #1**
+Worked on Add-on Task #2, answers are under **Bonus Add on #2**
 
 **Hosting URL**
 http://ec2-3-14-144-170.us-east-2.compute.amazonaws.com
@@ -34,7 +34,7 @@ IO Error: Connect to ec2-3-14-144-170.us-east-2.compute.amazonaws.com:3000 [ec2-
 This is because HTML5 validators do not work with React. 
 Every component file in this project contains a render() function. While this code has a similar structure to HTML5, render() provides a tree of React Elements. React, behind the scenes, maintains a Virtual DOM built from these React Elements. If any change occurs (A state update, for instance), React only changes what is necessary in the actual DOM to represent the changes. This allows for a faster application, along with seamless page transitions. 
 
-**Bonus Add on #1:**
+**Bonus Add on #2:**
 - Sample video is displayed in
 individual object page using proper
 HTML5 tags, and plays properly:
