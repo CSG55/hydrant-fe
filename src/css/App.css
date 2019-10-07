@@ -1,0 +1,152 @@
+@import './variables.css';
+
+/* aligning the base app to the center */
+.App {
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
+
+  /* width:100%; */
+  /* padding-bottom:60px; */
+
+}
+
+/* Setting the height for the hydrant logo
+to be 80% of the lesser of the display's width/height.
+This saves us from using a @media query */
+.App-logo {
+  height: 80vmin;
+}
+/* Color for Header/NavBar. 
+Also defining a border around left, right, bottom of header */
+.App-header {
+  background-color: var(--hydrant-orange);
+  border-style: solid;
+  border-width: 0px 1px 2px 1px
+}
+
+/* Sets base color of navigation buttons to black
+Overrides react-bootstrap's NavBar CSS */
+.App-header.navbar-light .navbar-nav .nav-link {
+  color: var(--plain-black);
+}
+
+/* When navigation buttons are clicked, embolden them.
+Overrides react-bootstrap's NavBar CSS */ 
+.App-header.navbar-light .navbar-nav .active>.nav-link,
+.App-header.navbar-light .navbar-nav .nav-link.active,
+.App-header.navbar-light .navbar-nav .nav-link.show {
+  font-weight: bolder;
+} 
+
+/* consider re-adding nav dropdown css if there is time */ 
+/* .App-header.navbar-light .navbar-nav .show>.nav-link {
+  color:black
+} */
+
+/* Set color of navigation list items to a reddish hue when hovering. 
+Overrides react-bootstrap's NavBar CSS */ 
+.App-header.navbar-light .navbar-nav .nav-link:hover {
+  background-color: var(--hydrant-faded-red);
+  color: var(--plain-black);
+}
+
+/* Design for the body of the app.
+Scales the contents to be centered, also based on the minimum of the user's display height/width.*/ 
+.App-body {
+  background-color: var(--hydrant-gray);
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  padding-bottom: 10vh; /* padding matches height of footer */
+}
+
+/* Color for Header/NavBar. 
+Also defining a border around left, right, bottom of header */
+.App-footer {
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+  background-color: var(--hydrant-orange);
+  border-style: solid;
+  border-color: var(--plain-black);
+  border-width: 2px 1px 0px 1px;
+  height: 10vh; /* size of the footer */
+  overflow: auto;
+}
+
+/*color for urls */
+.App-link {
+  color: #09d3ac;
+}
+
+/* Styles for the reusable form card. The size of the form card is dependent on the device's display */
+.hydrant-form-card {
+  width: 100vmin;
+}
+
+/* consistent coloring for all form headers */
+.hydrant-form-card .card-header {
+  background-color: var(--hydrant-faded-red)
+}
+
+/* restricting text size to a smaller level for check box labels */
+.form-check {
+  font-size: calc(10px + 1vmin);
+}
+
+/* making checkbox more clickable */
+.form-check-input {
+  zoom:1.6;
+}
+
+/* This is necessary to prevent iframe from overextending its container */
+iframe {
+  display:block;
+  width:100%;
+}
+/* This is necessary to prevent video tag from overextending its container */
+video {
+  display:block;
+  width:100%;
+}
+
+/* This method is used to center a div using the block element's width */
+.block-centered {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Color and padding to containers, including the FlexContainer */
+.container-style{
+  padding: 5px;
+}
+
+/* We want to have a margin for our flexbox on the desktop site, 
+however we want to maximize used-space on mobile-view*/
+@media (min-width: 576px){
+  .container-style{
+    margin: 10px;
+  }
+}
+
+/* we want a margin around our table when it is in a container */
+.container-style .react-bootstrap-table {
+  margin:5px;
+  background-color:var(--plain-white);
+}
+
+/* adding spacing around button*/
+button.btn.btn-primary {
+  margin: 5px 5px 5px 5px;
+}
+
+/* styling for header to make it stand out over darker colors */
+h1.light {
+  color: var(--plain-white);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}

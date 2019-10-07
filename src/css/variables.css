@@ -1,0 +1,12 @@
+/* We use these variables throughout the css file they are imported into*/
+:root {
+    --hydrant-gray: #3f4140;
+    --hydrant-orange: #ea7229;
+    --hydrant-beige: #efe1bb;
+    --plain-white: #ffffff;
+    --plain-black: #000000;
+    --hydrant-faded-red: rgba(255, 0, 0, 0.9);
+    --hydrant-red: #9a1c1b;
+    --hydrant-dark-red: #4f0909;
+  }
+  
