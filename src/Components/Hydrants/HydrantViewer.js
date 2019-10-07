@@ -3,7 +3,8 @@ import {Card} from 'react-bootstrap';
 import sample_hydrant from '../../common/old-johnny4.jpg';
 import ReactStars from 'react-stars'
 import FlexContainer from '../../common/FlexContainer';
-
+import sampleMP4 from '../../common/sampleMP4.mp4';
+import sampleOGG from '../../common/sampleOGG.ogv';
 
 const ReviewBox = ({name, count, review}) => {
     return (
@@ -60,7 +61,12 @@ class HydrantViewer extends React.Component {
                 </Card>
                 <Card className="text-center">
                     <Card.Title> Video </Card.Title>
-                    <Card.Img variant="top" src={sample_hydrant} alt="old sample hydrant from Puerto Rico" />
+                    <Card.Body>
+                    <video controls>
+                        <source src= {sampleMP4} type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+                        <source src={sampleOGG} type="video/ogg" />Your browser does not support the video tag. I suggest you upgrade your browser.
+                    </video>
+                    </Card.Body>
                 </Card>
 
             </FlexContainer>

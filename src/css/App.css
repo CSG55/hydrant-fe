@@ -109,6 +109,11 @@ iframe {
   display:block;
   width:100%;
 }
+/* This is necessary to prevent video tag from overextending its container */
+video {
+  display:block;
+  width:100%;
+}
 
 .block-centered {
   display: block;
