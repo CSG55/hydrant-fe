@@ -144,7 +144,7 @@ button.btn.btn-primary {
 }
 
 /* styling for header to make it stand out over darker colors */
-h2 {
+h1.light {
   color: var(--plain-white);
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }

@@ -31,7 +31,7 @@ class HydrantViewer extends React.Component {
    render() {
     return (
         <React.Fragment>
-            <h2> Sample Hydrant Page </h2>
+            <h1 className="light"> Sample Hydrant Page </h1>
             <FlexContainer>
                 <Card className="text-center">
                     <Card.Title> Old Johnny</Card.Title>
