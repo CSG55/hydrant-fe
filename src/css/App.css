@@ -117,7 +117,6 @@ iframe {
 /* Color and padding to containers, including the FlexContainer */
 .container-style{
   padding: 5px;
-  background-color:var(--plain-white);
 }
 
 /* We want to have a margin for our flexbox on the desktop site, 
@@ -131,5 +130,16 @@ however we want to maximize used-space on mobile-view*/
 /* we want a margin around our table when it is in a container */
 .container-style .react-bootstrap-table {
   margin:5px;
+  background-color:var(--plain-white);
+}
+
+/* we want a margin around our table when it is in a container */
+.container-style .react-bootstrap-table {
+  margin:5px;
+  background-color:var(--plain-white);
+}
+
+button.btn.btn-primary {
+  margin: 5px 5px 5px 5px;
 }
   
