@@ -1,5 +1,10 @@
 # hydrant
 
+**Administrative Stuffs**
+Kareem Khaled
+400032153
+CS 4WW3
+Worked on Add-on Task #2, answers are under **Bonus Add on #1**
 
 **Why I chose React**
 
