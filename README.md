@@ -7,7 +7,7 @@ CS 4WW3
 Worked on Add-on Task #2, answers are under **Bonus Add on #1**
 
 **Hosting URL**
-http://ec2-3-14-144-170.us-east-2.compute.amazonaws.com:3000
+http://ec2-3-14-144-170.us-east-2.compute.amazonaws.com
 
 **Why I chose React**
 
