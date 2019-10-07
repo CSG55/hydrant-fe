@@ -79,6 +79,7 @@ Also defining a border around left, right, bottom of header */
   overflow: auto;
 }
 
+/*color for urls */
 .App-link {
   color: #09d3ac;
 }
@@ -133,12 +134,7 @@ however we want to maximize used-space on mobile-view*/
   background-color:var(--plain-white);
 }
 
-/* we want a margin around our table when it is in a container */
-.container-style .react-bootstrap-table {
-  margin:5px;
-  background-color:var(--plain-white);
-}
-
+/* adding spacing around button*/
 button.btn.btn-primary {
   margin: 5px 5px 5px 5px;
 }

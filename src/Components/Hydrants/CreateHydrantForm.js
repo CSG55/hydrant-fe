@@ -10,12 +10,14 @@ class CreateHydrantForm extends React.Component {
         description: "",
         latLong: "",
         pictures: [],
+        video: [],
 
       }
     this.updateName = this.updateName.bind(this);
     this.updateDescription = this.updateDescription.bind(this);
     this.updateLatLong = this.updateLatLong.bind(this);
     this.updatePhoto = this.updatePhoto.bind(this);
+    this.updateVideo = this.updateVideo.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     // this.updatePhotos = this.updatePhotos.bind(this);
    }
@@ -27,38 +29,42 @@ class CreateHydrantForm extends React.Component {
 //     });
 // }
 
-   onSubmit(e) {
-    const {name, description, latLong, pictures} = this.state;
-    e.preventDefault();
-    console.log(this.state);
-    this.props.handleSubmit({name, description, latLong, pictures})
+    onSubmit(e) {
+        const {name, description, latLong, pictures, video} = this.state;
+        e.preventDefault();
+        console.log(this.state);
+        this.props.handleSubmit({name, description, latLong, pictures, video})
    }
-   updateName(e) {
-    console.log('updateName', e.target.value);
-    this.setState({
-        name: e.target.value
-    });
+    updateName(e) {
+        console.log('updateName', e.target.value);
+        this.setState({
+            name: e.target.value
+        });
    }
-   updateDescription(e) {
-    console.log('updateDescription', e.target.value);
-    this.setState({
-        description: e.target.value
-    });
+    updateDescription(e) {
+        console.log('updateDescription', e.target.value);
+        this.setState({
+            description: e.target.value
+        });
    }
-
-   updateLatLong(e) {
-    console.log('updateLatLong', e.target.value);
-    this.setState({
-        latLong: e.target.value
-    });
+    updateLatLong(e) {
+        console.log('updateLatLong', e.target.value);
+        this.setState({
+            latLong: e.target.value
+        });
    }
-
-   updatePhoto(e){
-    console.log('updatePhoto', e.target.value);
-    this.setState({
-        pictures: e.target.files
-    });
-}
+    updatePhoto(e){
+        console.log('updatePhoto', e.target.value);
+        this.setState({
+            pictures: e.target.files
+        });
+    }
+    updateVideo(e){
+        console.log('updatevideo', e.target.value);
+        this.setState({
+            video: e.target.files
+        });
+    }
 
    render() {
         const {name, description, latLong} = this.state;
@@ -94,6 +100,19 @@ class CreateHydrantForm extends React.Component {
             <FormGroup controlId="photos">
                 <FormLabel>Photos</FormLabel>
                 <FormControl name="images[]" type="file" onChange={this.updatePhoto}/>
+                {/* <ImageUploader
+                    singleImage={true}
+                    withIcon={true}
+                    buttonText='Choose images'
+                    onChange={this.updatePhotos}
+                    imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                    maxFileSize={5242880}
+                    withPreview={true}
+            /> */}
+            </FormGroup>
+            <FormGroup controlId="video">
+                <FormLabel>Video</FormLabel>
+                <FormControl name="videos[]" type="file" onChange={this.updateVideo}/>
                 {/* <ImageUploader
                     singleImage={true}
                     withIcon={true}
