@@ -70,6 +70,7 @@ class CreateHydrantForm extends React.Component {
         const {name, description, latLong} = this.state;
         return (
         <Form className="hydrant-editor" onSubmit={this.onSubmit}>
+        {/* Upon Submission, all form data is sent to the parent component to CreateHydrantForm */}
             <FormGroup controlId="name">
                 <FormLabel>Hydrant Name</FormLabel>
                 <FormControl 

@@ -55,7 +55,8 @@ class RegistrationForm extends React.Component {
         const {username, email, firstName} = this.state;
         return (
         <Form className="registration-form" onSubmit={this.onSubmit}>
-            <FormGroup controlId="username">
+        {/* Upon Submission, all form data is sent to the parent component to CreateHydrantForm */}
+        <FormGroup controlId="username">
                 <FormLabel>Username</FormLabel>
                 <FormControl 
                     type="text"

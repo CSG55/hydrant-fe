@@ -115,6 +115,7 @@ video {
   width:100%;
 }
 
+/* This method is used to center a div using the block element's width */
 .block-centered {
   display: block;
   margin: 0 auto;

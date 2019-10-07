@@ -1,5 +1,4 @@
 import React from 'react';
-import {Row} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import logo from '../../common/hydrant-logo.png';
 import FlexContainer from '../../common/FlexContainer';
@@ -9,6 +8,8 @@ class Homepage extends React.Component {
          <React.Fragment>
             <img src={logo} className="App-logo" alt="red cartoon-like hydrant logo" />
             <FlexContainer>
+               {/* Link allows us to push to the router history upon click. 
+               This essentially navigates through the router */}
                <Link to="/register">
                   <button className="btn btn-primary">Register for an Account</button>
                </Link>

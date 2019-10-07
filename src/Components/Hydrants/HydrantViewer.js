@@ -62,6 +62,7 @@ class HydrantViewer extends React.Component {
                 <Card className="text-center">
                     <Card.Title> Video </Card.Title>
                     <Card.Body>
+                    {/* HTML5 video, that renders either a sample mp4 or an ogg, as long as the browser supports it */}
                     <video controls>
                         <source src= {sampleMP4} type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
                         <source src={sampleOGG} type="video/ogg" />Your browser does not support the video tag. I suggest you upgrade your browser.

@@ -43,13 +43,16 @@ class HydrantResultsPage extends React.Component {
 
       return (
         <React.Fragment>
+        {/* React.Fragment allows us to render multiple children without cluttering the DOM with an extra <div></div> */}
           <h1 className="light"> Sample Results Page</h1>
           <FlexContainer>
+              {/* The data & columns stored in variables above are passed to the table. */}
               <BootstrapTable
                   keyField='id'
                   data={ mockTableData } 
                   columns={ columns } 
               />
+              {/* sample google maps location iframe */}
               <iframe title="fake-map" src="https://www.google.com/maps/d/u/0/embed?mid=1AD8yJVFaA4LoiyKHvOUH8M4qsE68B4xG" width="640" height="480"></iframe>
           </FlexContainer>
         </React.Fragment>

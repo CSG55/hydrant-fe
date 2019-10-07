@@ -24,6 +24,7 @@ class SearchView extends React.Component {
    render() {
       const {showResults} = this.state;
       return (
+      // Conditionally render either search form or results page. Results show after form is submitted
       (!showResults ? 
          <FormCard title="Hydrant Search">
             <HydrantSearchForm onSubmit={this.handleSubmit}/>

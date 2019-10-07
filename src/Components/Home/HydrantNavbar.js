@@ -12,6 +12,9 @@ class HydrantNavbar extends React.Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
+                    {/* The NavLinks should ideally be within the router.
+                    For these to work with react-router, we would need to encapsulate this header
+                    with the Router, which is in the body */}
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/register">Register</Nav.Link>
                     <Nav.Link href="/search">Search</Nav.Link>

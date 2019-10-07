@@ -39,6 +39,7 @@ class HydrantSearchForm extends React.Component {
         return (
         <Form onSubmit={this.onSubmit}>
             <FormGroup controlId="hydrantSearchName">
+            {/* Upon Submission, all form data is sent to the parent component to CreateHydrantForm */}
                 <FormLabel>Name</FormLabel>
                 <FormControl 
                     type="text"
