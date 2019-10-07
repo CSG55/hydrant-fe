@@ -7,11 +7,11 @@ class RegistrationForm extends React.Component {
       this.state = {
         username: "",
         email: "",
-        firstName: "",
+        password: "",
       }
     console.log('Entered Reg form');
     this.updateUsername = this.updateUsername.bind(this);
-    this.updateFirstName = this.updateFirstName.bind(this);
+    this.updatePassword = this.updatePassword.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
     this.updateTerms = this.updateTerms.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -30,10 +30,10 @@ class RegistrationForm extends React.Component {
         username: e.target.value
     });
    }
-   updateFirstName(e) {
-    console.log('updateFirstName', e.target.value);
+   updatePassword(e) {
+    console.log('updatePassword', e.target.value);
     this.setState({
-        firstName: e.target.value
+        password: e.target.value
     });
    }
 
@@ -52,7 +52,7 @@ class RegistrationForm extends React.Component {
 }
 
    render() {
-        const {username, email, firstName} = this.state;
+        const {username, email, password} = this.state;
         return (
         <Form className="registration-form" onSubmit={this.onSubmit}>
         {/* Upon Submission, all form data is sent to the parent component to CreateHydrantForm */}
@@ -65,13 +65,13 @@ class RegistrationForm extends React.Component {
                     defaultValue={username}
                 />
             </FormGroup>
-            <FormGroup controlId="firstName">
-                <FormLabel>First Name</FormLabel>
+            <FormGroup controlId="password">
+                <FormLabel>Password</FormLabel>
                 <FormControl 
-                    type="text"
-                    placeholder="Enter your First Name..."
-                    onChange={this.updateFirstName}
-                    defaultValue={firstName}
+                    type="password"
+                    placeholder="Enter a password..."
+                    onChange={this.updatePassword}
+                    defaultValue={password}
                 />
             </FormGroup>
             <FormGroup controlId="email">
