@@ -142,4 +142,9 @@ however we want to maximize used-space on mobile-view*/
 button.btn.btn-primary {
   margin: 5px 5px 5px 5px;
 }
-  
+
+/* styling for header to make it stand out over darker colors */
+h2 {
+  color: var(--plain-white);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
