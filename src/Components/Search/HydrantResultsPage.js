@@ -1,7 +1,13 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import FlexContainer from '../../common/FlexContainer';
+
+const nameFormatter = (cell, row) => {
+  console.log(cell, row);
+  return (<Link to="/hydrant/1">{cell}</Link>);
+}
 
 class HydrantResultsPage extends React.Component {
    constructor(props) {
@@ -13,12 +19,14 @@ class HydrantResultsPage extends React.Component {
     const columns= [{
         dataField: 'id',
         text: 'Hydrant ID',
-        hidden: true
+        hidden: true,
       },
       {
         dataField: 'name',
-        text: 'Name'
-      }, {
+        text: 'Name',
+        formatter: nameFormatter
+      },
+      {
         dataField: 'rating',
         text: 'Rating',
       }];
