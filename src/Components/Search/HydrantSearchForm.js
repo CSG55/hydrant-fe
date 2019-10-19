@@ -1,14 +1,7 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel, Row, Col} from 'react-bootstrap';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
-import MapContainer from './MapContainer';
+// import { Map, GoogleApiWrapper } from 'google-maps-react';
   
-const fetchUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        console.log({lat: position.coords.latitude, long: position.coords.longitude});
-    });
-}
-
 class HydrantSearchForm extends React.Component {
    constructor() {
       super();
@@ -20,39 +13,59 @@ class HydrantSearchForm extends React.Component {
       }
     console.log('Entered Search form');
     this.updateName = this.updateName.bind(this);
-    this.setUserLocation = this.setUserLocation.bind(this);
     this.updateRating = this.updateRating.bind(this);
+    this.updateLong = this.updateLong.bind(this);
+    this.updateLat = this.updateLat.bind(this);
+
+    this.getUserLocation = this.getUserLocation.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
    }
 
-   onSubmit(e) {
-    const {searchName, searchRating} = this.state;
-    e.preventDefault();
-    console.log(searchName, searchRating);
-    this.props.onSubmit({ searchName, searchRating });
-   }
+    onSubmit(e) {
+        const {searchName, searchRating} = this.state;
+        e.preventDefault();
+        console.log(searchName, searchRating);
+        this.props.onSubmit({ searchName, searchRating });
+    }
 
-   setUserLocation(){
-       console.log(fetchUserLocation());
+    getUserLocation() {
+        navigator.geolocation.getCurrentPosition((location) => {
+            this.setState({lat:location.coords.latitude, long: location.coords.longitude});
+            console.log({lat:location.coords.latitude, long: location.coords.longitude});
+        });
+    }
 
-    // this.setState({lat:position.coords.latitude, long: location.lat});
-}
-   updateName(e) {
-    console.log('updateName', e.target.value);
-    this.setState({
-        searchName: e.target.value
-    });
-   }
+    updateName(e) {
+        console.log('updateName', e.target.value);
+        this.setState({
+            searchName: e.target.value
+        });
+    }
 
-   updateRating(e){
-    console.log('updateRating', e.target.value);
-    this.setState({
-        searchRating: e.target.value
-    });
-}
+    updateLong(e) {
+        console.log('updateLong', e.target.value);
+        this.setState({
+            long: e.target.value
+        });
+    }
+
+    updateLat(e) {
+        console.log('updateLat', e.target.value);
+        this.setState({
+            lat: e.target.value
+        });
+    }
+
+    updateRating(e){
+        console.log('updateRating', e.target.value);
+        this.setState({
+            searchRating: e.target.value
+        });
+    }
 
    render() {
         const {searchName, searchRating, lat, long} = this.state;
+        console.log(lat, long);
           
         return (
         <Form onSubmit={this.onSubmit}>
@@ -85,34 +98,26 @@ class HydrantSearchForm extends React.Component {
             <FormGroup controlId="hydrantSearchRating">
                 <FormLabel>Filter by Location</FormLabel>
                 <Row>
-                <Col>
-                <Button 
-                    onClick={this.setUserLocation}
-                > Get Your Location
-                </Button>
-                </Col>
-                <Col>
-                <FormControl 
-                    type="text"
-                    placeholder="Enter Latitude..."
-                    onChange={this.updateName}
-                    defaultValue={lat}
-                />
-                </Col>
-                <Col>
+                    <Col xs={6} md={4}> {/* On mobile, this column is half the row width. On desktop, it is 1/3 */}
+                    <Button onClick={this.getUserLocation}>
+                        Use Your Location
+                    </Button>
+                    </Col>
+                    <Col xs={6} md={8}> {/* On mobile, this column is half the row width. On desktop, it is 2/3 */}
                     <FormControl 
-                    type="text"
-                    placeholder="Enter Longitude..."
-                    onChange={this.updateName}
-                    defaultValue={long}
-                />
-                </Col>
+                        type="number"
+                        placeholder="Enter Latitude..."
+                        onChange={this.updateLat}
+                        value={lat}
+                    />
+                    <FormControl 
+                        type="number"
+                        placeholder="Enter Longitude..."
+                        onChange={this.updateLong}
+                        value={long}
+                    />
+                    </Col>
                 </Row>
-
-                
-                {/* <MapContainer
-                /> */}
-
             </FormGroup>
 
 
