@@ -1,6 +1,8 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel} from 'react-bootstrap';
-
+import { Map, GoogleApiWrapper } from 'google-maps-react';
+import MapContainer from './MapContainer';
+  
 class HydrantSearchForm extends React.Component {
    constructor() {
       super();
@@ -36,6 +38,12 @@ class HydrantSearchForm extends React.Component {
 
    render() {
         const {searchName, searchRating} = this.state;
+
+        const mapStyles = {
+            width: '100%',
+            height: '100%'
+          };
+          
         return (
         <Form onSubmit={this.onSubmit}>
             <FormGroup controlId="hydrantSearchName">
@@ -64,6 +72,15 @@ class HydrantSearchForm extends React.Component {
 
                 </FormControl>
             </FormGroup>
+            <FormGroup controlId="hydrantSearchRating">
+                {/* <FormControl> */}
+                    <FormLabel>Filter by Location</FormLabel>
+                    <MapContainer
+                    />
+                {/* </FormControl> */}
+
+            </FormGroup>
+
 
             <Button type="submit">
                 Submit
