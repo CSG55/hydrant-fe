@@ -55,15 +55,19 @@ class RegistrationForm extends React.Component {
         const {username, email, password} = this.state;
         return (
         <Form className="registration-form" onSubmit={this.onSubmit}>
-        {/* Upon Submission, all form data is sent to the parent component to CreateHydrantForm */}
-        <FormGroup controlId="username">
+            {/* Upon Submission, all form data is sent to the parent component to CreateHydrantForm */}
+            <FormGroup controlId="username">
                 <FormLabel>Username</FormLabel>
                 <FormControl 
                     type="text"
                     placeholder="Enter a username..."
                     onChange={this.updateUsername}
                     defaultValue={username}
+                    isInvalid
                 />
+                <FormControl.Feedback type="invalid">
+                    Please provide a Username.
+                </FormControl.Feedback>
             </FormGroup>
             <FormGroup controlId="password">
                 <FormLabel>Password</FormLabel>
