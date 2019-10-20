@@ -156,9 +156,6 @@ div.invalid-feedback {
   font-size: 60%;
 }
 
-.form-group.form-label.required:after {
-  content:"*";color:red;
-}
 .form-label.required::after {
   content: "*";
   color: red;
