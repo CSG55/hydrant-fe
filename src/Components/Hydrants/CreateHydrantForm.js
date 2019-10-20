@@ -1,5 +1,7 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel, Col} from 'react-bootstrap';
+import {isValidLongOrLat} from '../../common/validators';
+
 // import ImageUploader from 'react-images-upload';
 
 const validateForm = (name, lat, long) => {
@@ -96,16 +98,17 @@ class CreateHydrantForm extends React.Component {
         <Form className="hydrant-editor" onSubmit={this.onSubmit}>
         {/* Upon Submission, all form data is sent to the parent component to CreateHydrantForm */}
             <FormGroup controlId="name">
-                <FormLabel>Hydrant Name</FormLabel>
+                <FormLabel className="required">Hydrant Name</FormLabel>
                 <FormControl 
                     type="text"
                     placeholder="Name your hydrant..."
                     onChange={this.updateName}
                     defaultValue={name}
+                    required
                 />
             </FormGroup>
-            <FormGroup controlId="image">
-                <FormLabel>Image</FormLabel>
+            <FormGroup controlId="description">
+                <FormLabel>Description</FormLabel>
                 <FormControl 
                     as="textarea"
                     placeholder="Enter your Hydrant description..."
@@ -115,6 +118,7 @@ class CreateHydrantForm extends React.Component {
             </FormGroup>
 
             <FormGroup controlId="location">
+            <FormLabel className="required">Location</FormLabel>
                 <Form.Row>
                     <Col>
                         <FormControl 
@@ -122,6 +126,7 @@ class CreateHydrantForm extends React.Component {
                             placeholder="Enter Latitude..."
                             onChange={this.updateLat}
                             value={lat}
+                            required
                         />
                     </Col>
                     <Col>
@@ -130,6 +135,7 @@ class CreateHydrantForm extends React.Component {
                             placeholder="Enter Longitude..."
                             onChange={this.updateLong}
                             value={long}
+                            required
                         />
                     </Col>
                 </Form.Row>
