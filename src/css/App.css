@@ -150,3 +150,13 @@ h1.light {
   color: var(--plain-white);
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
+/* making form errors a smaller font than the default 80% */
+div.invalid-feedback {
+  font-size: 60%;
+}
+
+.form-label.required::after {
+  content: "*";
+  color: red;
+}
