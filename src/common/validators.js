@@ -3,7 +3,7 @@ function isValidEmail(email) { //https://stackoverflow.com/questions/46155/how-t
     return re.test(String(email).toLowerCase());
 }
 
-function isValidLongOrLat(number) {
+function isValidLongOrLat(number) { // https://stackoverflow.com/questions/22903756/using-regular-expression-to-validate-latitude-and-longitude-coordinates-then-dis
     var re = /^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}/;
     return re.test(String(number));
 

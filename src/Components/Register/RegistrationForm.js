@@ -79,26 +79,28 @@ class RegistrationForm extends React.Component {
         <Form className="registration-form" onSubmit={this.onSubmit}>
             {/* Upon Submission, all form data is sent to the parent component to CreateHydrantForm */}
             <FormGroup controlId="username">
-                <FormLabel>Username</FormLabel>
+                <FormLabel className="required">Username</FormLabel>
                 <FormControl 
                     type="text"
                     placeholder="Enter a username..."
                     onChange={this.updateUsername}
                     defaultValue={username}
                     isInvalid={errors.username}
+                    required
                 />
                 <FormControl.Feedback type="invalid">
                     Please provide a Username.
                 </FormControl.Feedback>
             </FormGroup>
             <FormGroup controlId="password">
-                <FormLabel>Password</FormLabel>
+                <FormLabel className="required">Password</FormLabel>
                 <FormControl 
                     type="password"
                     placeholder="Enter a password..."
                     onChange={this.updatePassword}
                     defaultValue={password}
                     isInvalid={errors.password}
+                    required
                 />
                 <FormControl.Feedback type="invalid">
                     Please provide a Password.
@@ -106,13 +108,14 @@ class RegistrationForm extends React.Component {
 
             </FormGroup>
             <FormGroup controlId="email">
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="required">Email</FormLabel>
                 <FormControl 
                     type="email"
                     placeholder="Enter your email..."
                     onChange={this.updateEmail}
                     defaultValue={email}
                     isInvalid={errors.email}
+                    required
                 />
                 <FormControl.Feedback type="invalid">
                     Please provide a valid email.
@@ -125,6 +128,7 @@ class RegistrationForm extends React.Component {
                     onChange={this.updateTerms}
                     label="I agree that hydrants are the greatest invention of all mankind."
                     isInvalid={errors.acceptTerms}
+                    required
                 />
             </FormGroup>
 

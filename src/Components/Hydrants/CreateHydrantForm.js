@@ -3,44 +3,44 @@ import {Button, FormControl, FormGroup, Form, FormLabel, Col} from 'react-bootst
 import {isValidLongOrLat} from '../../common/validators';
 
 // import ImageUploader from 'react-images-upload';
-
-const validateForm = (name, lat, long) => {
-    const errors = {
-        name: !name,
-        lat: !lat,
-        long: !long,
-    };
-    console.log(errors);
-    return errors;
-   }
+    const validateForm = (name, lat, long) => {
+        const errors = {
+            name: !name,
+            lat: !isValidLongOrLat(lat),
+            long: !isValidLongOrLat(long),
+        };
+        console.log(errors);
+        return errors;
+    }
+    
 class CreateHydrantForm extends React.Component {
-   constructor() {
-      super();
-      this.state = {
-        name: "",
-        description: "",
-        lat: "",
-        long:"",
-        pictures: [],
-        video: [],
+    constructor() {
+        super();
+        this.state = {
+            name: "",
+            description: "",
+            lat: "",
+            long:"",
+            pictures: [],
+            video: [],
+            errors:{},
+        }
+        this.updateName = this.updateName.bind(this);
+        this.updateDescription = this.updateDescription.bind(this);
+        this.updateLat = this.updateLat.bind(this);
+        this.updateLong = this.updateLong.bind(this);
+        this.updatePhoto = this.updatePhoto.bind(this);
+        this.updateVideo = this.updateVideo.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+        // this.updatePhotos = this.updatePhotos.bind(this);
+    }
 
-      }
-    this.updateName = this.updateName.bind(this);
-    this.updateDescription = this.updateDescription.bind(this);
-    this.updateLat = this.updateLat.bind(this);
-    this.updateLong = this.updateLong.bind(this);
-    this.updatePhoto = this.updatePhoto.bind(this);
-    this.updateVideo = this.updateVideo.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-    // this.updatePhotos = this.updatePhotos.bind(this);
-   }
-
-//    updatePhotos(picture) {
-//     console.log(picture);
-//     this.setState({
-//         pictures: this.state.pictures.concat(picture),
-//     });
-// }
+    //    updatePhotos(picture) {
+    //     console.log(picture);
+    //     this.setState({
+    //         pictures: this.state.pictures.concat(picture),
+    //     });
+    // }
 
     onSubmit(e) {
         const {name, description, lat, long, pictures, video} = this.state;
@@ -51,22 +51,22 @@ class CreateHydrantForm extends React.Component {
         if (isInvalid){
             this.setState({errors});
         } else {
-        console.log(this.state);
-        this.props.handleSubmit({name, description, lat, long, pictures, video})
+            console.log(this.state);
+            this.props.handleSubmit({name, description, lat, long, pictures, video})
         }
-   }
+    }
     updateName(e) {
         console.log('updateName', e.target.value);
         this.setState({
             name: e.target.value
         });
-   }
+    }
     updateDescription(e) {
         console.log('updateDescription', e.target.value);
         this.setState({
             description: e.target.value
         });
-   }
+    }
     updateLat(e) {
         console.log('updateLat', e.target.value);
         this.setState({
@@ -84,7 +84,7 @@ class CreateHydrantForm extends React.Component {
             this.setState({
                 pictures: e.target.files
             });
-        }
+    }
     updateVideo(e){
         console.log('updatevideo', e.target.value);
         this.setState({
@@ -92,86 +92,102 @@ class CreateHydrantForm extends React.Component {
         });
     }
 
-   render() {
-        const {name, description, lat, long} = this.state;
-        return (
-        <Form className="hydrant-editor" onSubmit={this.onSubmit}>
-        {/* Upon Submission, all form data is sent to the parent component to CreateHydrantForm */}
-            <FormGroup controlId="name">
-                <FormLabel className="required">Hydrant Name</FormLabel>
-                <FormControl 
-                    type="text"
-                    placeholder="Name your hydrant..."
-                    onChange={this.updateName}
-                    defaultValue={name}
-                    required
-                />
-            </FormGroup>
-            <FormGroup controlId="description">
-                <FormLabel>Description</FormLabel>
-                <FormControl 
-                    as="textarea"
-                    placeholder="Enter your Hydrant description..."
-                    onChange={this.updateFirstName}
-                    defaultValue={description}
-                />
-            </FormGroup>
+    render() {
+            const {errors, name, description, lat, long} = this.state;
+            return (
+            <Form className="hydrant-editor" onSubmit={this.onSubmit}>
+            {/* Upon Submission, all form data is sent to the parent component to CreateHydrantForm */}
+                <FormGroup controlId="name">
+                    <FormLabel className="required">Hydrant Name</FormLabel>
+                    <FormControl 
+                        type="text"
+                        placeholder="Name your hydrant..."
+                        onChange={this.updateName}
+                        defaultValue={name}
+                        isInvalid={errors.name}
+                        required
+                    />
+                <FormControl.Feedback type="invalid">
+                    Please enter a name.
+                </FormControl.Feedback>
 
-            <FormGroup controlId="location">
-            <FormLabel className="required">Location</FormLabel>
-                <Form.Row>
-                    <Col>
-                        <FormControl 
-                            type="number"
-                            placeholder="Enter Latitude..."
-                            onChange={this.updateLat}
-                            value={lat}
-                            required
-                        />
-                    </Col>
-                    <Col>
-                        <FormControl 
-                            type="number"
-                            placeholder="Enter Longitude..."
-                            onChange={this.updateLong}
-                            value={long}
-                            required
-                        />
-                    </Col>
-                </Form.Row>
-            </FormGroup>
 
-            <FormGroup controlId="photos">
-                <FormLabel>Photos</FormLabel>
-                <FormControl name="images[]" type="file" onChange={this.updatePhoto}/>
-                {/* <ImageUploader
-                    singleImage={true}
-                    withIcon={true}
-                    buttonText='Choose images'
-                    onChange={this.updatePhotos}
-                    imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                    maxFileSize={5242880}
-                    withPreview={true}
-            /> */}
-            </FormGroup>
-            <FormGroup controlId="video">
-                <FormLabel>Video</FormLabel>
-                <FormControl name="videos[]" type="file" onChange={this.updateVideo}/>
-                {/* <ImageUploader
-                    singleImage={true}
-                    withIcon={true}
-                    buttonText='Choose images'
-                    onChange={this.updatePhotos}
-                    imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                    maxFileSize={5242880}
-                    withPreview={true}
-            /> */}
-            </FormGroup>
-            <Button type="submit">
-            Submit
-            </Button>
-        </Form>
-        );
-   }
+                </FormGroup>
+                <FormGroup controlId="description">
+                    <FormLabel>Description</FormLabel>
+                    <FormControl 
+                        as="textarea"
+                        placeholder="Enter your Hydrant description..."
+                        onChange={this.updateFirstName}
+                        defaultValue={description}
+                    />
+                </FormGroup>
+
+                <FormGroup controlId="location">
+                <FormLabel className="required">Location</FormLabel>
+                    <Form.Row>
+                        <Col>
+                            <FormControl 
+                                type="number"
+                                placeholder="Enter Latitude..."
+                                onChange={this.updateLat}
+                                value={lat}
+                                isInvalid={errors.lat}
+                                required
+                            />
+                            <FormControl.Feedback type="invalid">
+                                Please enter a valid coordinate.
+                            </FormControl.Feedback>
+                        </Col>
+                        <Col>
+                            <FormControl 
+                                type="number"
+                                placeholder="Enter Longitude..."
+                                onChange={this.updateLong}
+                                value={long}
+                                isInvalid={errors.long}
+                                required
+                            />
+                            <FormControl.Feedback type="invalid">
+                                Please enter a valid coordinate.
+                            </FormControl.Feedback>
+
+
+                        </Col>
+                    </Form.Row>
+                </FormGroup>
+
+                <FormGroup controlId="photos">
+                    <FormLabel>Photos</FormLabel>
+                    <FormControl name="images[]" type="file" onChange={this.updatePhoto}/>
+                    {/* <ImageUploader
+                        singleImage={true}
+                        withIcon={true}
+                        buttonText='Choose images'
+                        onChange={this.updatePhotos}
+                        imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                        maxFileSize={5242880}
+                        withPreview={true}
+                /> */}
+                </FormGroup>
+                <FormGroup controlId="video">
+                    <FormLabel>Video</FormLabel>
+                    <FormControl name="videos[]" type="file" onChange={this.updateVideo}/>
+                    {/* <ImageUploader
+                        singleImage={true}
+                        withIcon={true}
+                        buttonText='Choose images'
+                        onChange={this.updatePhotos}
+                        imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                        maxFileSize={5242880}
+                        withPreview={true}
+                /> */}
+                </FormGroup>
+                <Button type="submit">
+                Submit
+                </Button>
+            </Form>
+            );
+    }
 }
 export default CreateHydrantForm;
