@@ -31,9 +31,6 @@ class RegistrationForm extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
    }
 
-   
-
-
     onSubmit(e) {
         const {username, email, password, acceptTerms} = this.state;
         const errors = validateForm(username, email, password, acceptTerms);

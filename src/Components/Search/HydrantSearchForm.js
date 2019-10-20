@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, FormControl, FormGroup, Form, FormLabel, Row, Col} from 'react-bootstrap';
+import {Button, FormControl, FormGroup, Form, FormLabel, Col} from 'react-bootstrap';
 // import { Map, GoogleApiWrapper } from 'google-maps-react';
   
 class HydrantSearchForm extends React.Component {
@@ -95,9 +95,9 @@ class HydrantSearchForm extends React.Component {
 
                 </FormControl>
             </FormGroup>
-            <FormGroup controlId="hydrantSearchRating">
+            <FormGroup controlId="location">
                 <FormLabel>Filter by Location</FormLabel>
-                <Row>
+                <Form.Row>
                     <Col xs={6} md={4}> {/* On mobile, this column is half the row width. On desktop, it is 1/3 */}
                     <Button onClick={this.getUserLocation}>
                         Use Your Location
@@ -117,7 +117,7 @@ class HydrantSearchForm extends React.Component {
                         value={long}
                     />
                     </Col>
-                </Row>
+                </Form.Row>
             </FormGroup>
 
 
