@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import FlexContainer from '../../common/FlexContainer';
+import MapContainer from './MapContainer';
 
 const nameFormatter = (cell, row) => {
   console.log(cell, row);
@@ -60,8 +61,10 @@ class HydrantResultsPage extends React.Component {
                   data={ mockTableData } 
                   columns={ columns } 
               />
+              
+              <MapContainer/>
               {/* sample google maps location iframe */}
-              <iframe title="fake-map" src="https://www.google.com/maps/d/u/0/embed?mid=1AD8yJVFaA4LoiyKHvOUH8M4qsE68B4xG" width="640" height="480"></iframe>
+              {/* <iframe title="fake-map" src="https://www.google.com/maps/d/u/0/embed?mid=1AD8yJVFaA4LoiyKHvOUH8M4qsE68B4xG" width="640" height="480"></iframe> */}
           </FlexContainer>
         </React.Fragment>
     );
