@@ -156,6 +156,7 @@ div.invalid-feedback {
   font-size: 60%;
 }
 
+/* adding asterisk after required form labels */
 .form-label.required::after {
   content: "*";
   color: red;
