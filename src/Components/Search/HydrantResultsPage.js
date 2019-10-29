@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Row} from 'react-bootstrap';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import FlexContainer from '../../common/FlexContainer';
@@ -59,7 +58,7 @@ class HydrantResultsPage extends React.Component {
               {/* The data & columns stored in variables above are passed to the table. */}
               <div 
                 style={{ 
-                maxWidth:'50%',
+                  maxWidth:'50%',
                  }}
 >
               <BootstrapTable
@@ -71,8 +70,6 @@ class HydrantResultsPage extends React.Component {
 
               <div 
                 style={{ 
-                // height:'500px',
-                // width:'500px',
                 maxWidth:'50%',
                 maxHeight:'50%',
                  }}
