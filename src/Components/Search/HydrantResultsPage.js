@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {Row} from 'react-bootstrap';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import FlexContainer from '../../common/FlexContainer';
@@ -56,13 +57,29 @@ class HydrantResultsPage extends React.Component {
           <h1 className="light"> Sample Results Page</h1>
           <FlexContainer>
               {/* The data & columns stored in variables above are passed to the table. */}
+              <div 
+                style={{ 
+                maxWidth:'50%',
+                 }}
+>
               <BootstrapTable
                   keyField='id'
                   data={ mockTableData } 
                   columns={ columns } 
               />
-              
+              </div>
+
+              <div 
+                style={{ 
+                // height:'500px',
+                // width:'500px',
+                maxWidth:'50%',
+                maxHeight:'50%',
+                 }}
+              >
               <MapContainer/>
+              </div>
+
               {/* sample google maps location iframe */}
               {/* <iframe title="fake-map" src="https://www.google.com/maps/d/u/0/embed?mid=1AD8yJVFaA4LoiyKHvOUH8M4qsE68B4xG" width="640" height="480"></iframe> */}
           </FlexContainer>

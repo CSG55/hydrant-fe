@@ -38,8 +38,13 @@ export class MapContainer extends React.Component {
         <Map
           google={this.props.google}
           zoom={8}
-          style={mapStyles}
+          // style={mapStyles}
           initialCenter={{ lat: 47.444, lng: -122.176}}
+          const containerStyle = {{position: 'absolute', width: '50%', height:'50%'}}
+
+          // containerElement={ <div style={{ height: '100%', width: '100%%' }} /> }
+          // mapElement={ <div style={{ height: `100%` }} /> }
+
         >
           {this.displayMarkers()}
         </Map>
