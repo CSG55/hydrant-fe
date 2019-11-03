@@ -29,7 +29,7 @@ class SearchView extends React.Component {
          <FormCard title="Hydrant Search">
             <HydrantSearchForm onSubmit={this.handleSubmit}/>
          </FormCard>
-         : <HydrantResultsPage/> )
+         : <HydrantResultsPage history={this.props.history}/> )
       );
    }
 }

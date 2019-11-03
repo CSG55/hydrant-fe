@@ -74,7 +74,7 @@ class HydrantResultsPage extends React.Component {
                 maxHeight:'50%',
                  }}
               >
-              <MapContainer/>
+              <MapContainer history={this.props.history}/>
               </div>
 
               {/* sample google maps location iframe */}
