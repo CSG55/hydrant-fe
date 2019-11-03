@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel, Col} from 'react-bootstrap';
 import {isValidLongOrLat} from '../../common/validators';
+import MapContainer from '../Search/MapContainer.js'
 
 // import ImageUploader from 'react-images-upload';
     const validateForm = (name, lat, long) => {
@@ -151,10 +152,14 @@ class CreateHydrantForm extends React.Component {
                             <FormControl.Feedback type="invalid">
                                 Please enter a valid coordinate.
                             </FormControl.Feedback>
-
-
                         </Col>
                     </Form.Row>
+                    <Form.Row>
+                        {/* <div style={{height:'500px', width:'500px'}}> */}
+                        <MapContainer editing={true}/>
+                        {/* </div> */}
+                    </Form.Row>
+
                 </FormGroup>
 
                 <FormGroup controlId="photos">
