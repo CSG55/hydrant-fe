@@ -32,6 +32,7 @@ class CreateHydrantForm extends React.Component {
         this.updateLong = this.updateLong.bind(this);
         this.updatePhoto = this.updatePhoto.bind(this);
         this.updateVideo = this.updateVideo.bind(this);
+        this.onMapMarkerPlace = this.onMapMarkerPlace.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         // this.updatePhotos = this.updatePhotos.bind(this);
     }
@@ -90,6 +91,14 @@ class CreateHydrantForm extends React.Component {
         console.log('updatevideo', e.target.value);
         this.setState({
             video: e.target.files
+        });
+    }
+
+    onMapMarkerPlace(coords){
+        console.log('updateMarker', coords);
+        this.setState({
+            lat:coords.lat,
+            long:coords.long,
         });
     }
 
@@ -156,7 +165,7 @@ class CreateHydrantForm extends React.Component {
                     </Form.Row>
                     <Form.Row>
                         {/* <div style={{height:'500px', width:'500px'}}> */}
-                        <MapContainer editing={true}/>
+                        <MapContainer onMarkerDragEnd={this.onMapMarkerPlace} editing={true}/>
                         {/* </div> */}
                     </Form.Row>
 

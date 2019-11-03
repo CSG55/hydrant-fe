@@ -27,9 +27,9 @@ export class MapContainer extends React.Component {
   onMarkerDragEnd = (coord, index) => {
     const { latLng } = coord;
     const lat = latLng.lat();
-    const lng = latLng.lng();
+    const long = latLng.lng();
 
-    console.log(lat, lng);
+    return this.props.onMarkerDragEnd({lat,long});
 
   };
 
