@@ -163,13 +163,16 @@ class CreateHydrantForm extends React.Component {
                             </FormControl.Feedback>
                         </Col>
                     </Form.Row>
+                    <br/>
                     <Form.Row>
-                        {/* <div style={{height:'500px', width:'500px'}}> */}
-                        <MapContainer onMarkerDragEnd={this.onMapMarkerPlace} editing={true}/>
-                        {/* </div> */}
+                        <div className="create-hydrant-map">
+                            <MapContainer onMarkerDragEnd={this.onMapMarkerPlace} editing={true}/>
+                        </div> 
                     </Form.Row>
-
                 </FormGroup>
+                {/* <div style={{position:'relative', height:'100%', width:'100%'}}>
+                    <MapContainer onMarkerDragEnd={this.onMapMarkerPlace} editing={true}/>
+                </div> */}
 
                 <FormGroup controlId="photos">
                     <FormLabel>Photos</FormLabel>

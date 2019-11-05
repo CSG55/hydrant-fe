@@ -53,8 +53,8 @@ export class MapContainer extends React.Component {
           google={this.props.google}
           zoom={8}
           initialCenter={{ lat: 47.444, lng: -122.176}}
-          const containerStyle = {{position: 'absolute', width: '50%', height:'50%'}}
-        >
+          // const containerStyle = {{position: 'absolute', width: '50%', height:'50%'}}
+          >
           {this.state.markers.map((marker, index) => (
           <Marker
             position={marker.position}
@@ -71,11 +71,7 @@ export class MapContainer extends React.Component {
           google={this.props.google}
           zoom={8}
           initialCenter={{ lat: 47.444, lng: -122.176}}
-          const containerStyle = {{position: 'absolute', width: '50%', height:'50%'}}
-        // style={{
-        //   width: "50%",
-        //   height: "300px"
-        // }}
+          // const containerStyle = {{position: 'absolute', width: '50%', height:'50%'}}
         >
           {this.displayMarkers()}
         </Map>
