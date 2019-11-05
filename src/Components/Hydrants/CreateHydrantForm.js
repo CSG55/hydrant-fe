@@ -44,7 +44,7 @@ class CreateHydrantForm extends React.Component {
         const errors = validateForm(name, lat, long);
         const isInvalid = Object.values(errors).some(x => (x === true)); // if one form item has an error, the form is invalid
 
-        e.preventDefault();
+        e.preventDefault(); // prevent default behavior of onSubmit
         if (isInvalid){
             this.setState({errors}); // show predefined field errors 
         } else {
