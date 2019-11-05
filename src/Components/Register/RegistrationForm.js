@@ -1,17 +1,19 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel} from 'react-bootstrap';
-import {isValidEmail} from '../../common/validators';
+import {isValidEmail, isValidUsername, isValidPassword} from '../../common/validators';
 
-
+// returns a boolean array "errors" of each field's validaton status
+// In "errors", a field is true if it is invalid. 
 const validateForm = (username, email, password, acceptTerms) => {
     const errors = {
-        username: !username,
+        username: !username || !isValidUsername(isValidUsername),
         email: !isValidEmail(email), 
-        password: !password,
+        password: !password || !isValidPassword(password),
         acceptTerms: !acceptTerms,
     };
     return errors;
-   }
+}
+
 class RegistrationForm extends React.Component {
    constructor(props) {
       super(props);
@@ -22,7 +24,6 @@ class RegistrationForm extends React.Component {
         acceptTerms: false,
         errors: {},
       }
-    console.log('Entered Reg form');
     this.updateUsername = this.updateUsername.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
@@ -36,38 +37,35 @@ class RegistrationForm extends React.Component {
         const errors = validateForm(username, email, password, acceptTerms);
         const isInvalid = Object.values(errors).some(x => (x === true)); // if one form item has an error, the form is invalid
 
-        e.preventDefault();
+        e.preventDefault(); // prevent default behavior of onSubmit
         if (isInvalid){
-            this.setState({errors});
+            this.setState({errors}); // show predefined field errors 
         } else {
-            console.log(this.state);
             this.props.handleSubmit({username, email, password});
         }
 
     }
 
+    // update the state for username whenever a user edits the field.
+    // this state is used when validating the field
     updateUsername(e) {
-        console.log('updateUsername', e.target.value);
         this.setState({
             username: e.target.value
         });
     }
     updatePassword(e) {
-        console.log('updatePassword', e.target.value);
         this.setState({
             password: e.target.value
         });
     }
 
     updateEmail(e) {
-        console.log('updateEmail', e.target.value);
         this.setState({
             email: e.target.value
         });
     }
 
     updateTerms(e){
-        console.log('updateTerms', e.target.checked);
         this.setState({
             acceptTerms: e.target.checked
         });
@@ -89,7 +87,7 @@ class RegistrationForm extends React.Component {
                     required
                 />
                 <FormControl.Feedback type="invalid">
-                    Please provide a Username.
+                    Please provide an alphanumeric Username.
                 </FormControl.Feedback>
             </FormGroup>
             <FormGroup controlId="password">
@@ -103,7 +101,7 @@ class RegistrationForm extends React.Component {
                     required
                 />
                 <FormControl.Feedback type="invalid">
-                    Please provide a Password.
+                    Please provide an alphanumeric Password of at least 6 digits.
                 </FormControl.Feedback>
 
             </FormGroup>

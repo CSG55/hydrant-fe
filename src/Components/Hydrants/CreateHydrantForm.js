@@ -1,13 +1,16 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel, Col} from 'react-bootstrap';
-import {isValidLongOrLat} from '../../common/validators';
-
+import {isValidLong, isValidLat} from '../../common/validators';
+import MapContainer from '../../common/MapContainer'
 // import ImageUploader from 'react-images-upload';
-    const validateForm = (name, lat, long) => {
+
+// returns a boolean array "errors" of each field's validaton status
+// In "errors", a field is true if it is invalid. 
+const validateForm = (name, lat, long) => {
         const errors = {
             name: !name,
-            lat: !isValidLongOrLat(lat),
-            long: !isValidLongOrLat(long),
+            lat: !isValidLat(lat), // use validator function to determine if coordinate is invalid
+            long: !isValidLong(long),
         };
         console.log(errors);
         return errors;
@@ -31,64 +34,61 @@ class CreateHydrantForm extends React.Component {
         this.updateLong = this.updateLong.bind(this);
         this.updatePhoto = this.updatePhoto.bind(this);
         this.updateVideo = this.updateVideo.bind(this);
+        this.onMapMarkerPlace = this.onMapMarkerPlace.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-        // this.updatePhotos = this.updatePhotos.bind(this);
     }
 
-    //    updatePhotos(picture) {
-    //     console.log(picture);
-    //     this.setState({
-    //         pictures: this.state.pictures.concat(picture),
-    //     });
-    // }
 
     onSubmit(e) {
         const {name, description, lat, long, pictures, video} = this.state;
         const errors = validateForm(name, lat, long);
         const isInvalid = Object.values(errors).some(x => (x === true)); // if one form item has an error, the form is invalid
 
-        e.preventDefault();
+        e.preventDefault(); // prevent default behavior of onSubmit
         if (isInvalid){
-            this.setState({errors});
+            this.setState({errors}); // show predefined field errors 
         } else {
-            console.log(this.state);
             this.props.handleSubmit({name, description, lat, long, pictures, video})
         }
     }
+
+    // update the state for name whenever a user edits the field.
+    // this state is used when validating the field
     updateName(e) {
-        console.log('updateName', e.target.value);
         this.setState({
             name: e.target.value
         });
     }
     updateDescription(e) {
-        console.log('updateDescription', e.target.value);
         this.setState({
             description: e.target.value
         });
     }
     updateLat(e) {
-        console.log('updateLat', e.target.value);
         this.setState({
             lat: e.target.value
         });
     }
     updateLong(e) {
-        console.log('updateLong', e.target.value);
         this.setState({
             long: e.target.value
         });
     }
     updatePhoto(e){
-            console.log('updatePhoto', e.target.value);
             this.setState({
                 pictures: e.target.files
             });
     }
     updateVideo(e){
-        console.log('updatevideo', e.target.value);
         this.setState({
             video: e.target.files
+        });
+    }
+
+    onMapMarkerPlace(coords){
+        this.setState({
+            lat:coords.lat,
+            long:coords.long,
         });
     }
 
@@ -136,7 +136,7 @@ class CreateHydrantForm extends React.Component {
                                 required
                             />
                             <FormControl.Feedback type="invalid">
-                                Please enter a valid coordinate.
+                                Please enter a valid latitude (between -90 and 90).
                             </FormControl.Feedback>
                         </Col>
                         <Col>
@@ -149,14 +149,17 @@ class CreateHydrantForm extends React.Component {
                                 required
                             />
                             <FormControl.Feedback type="invalid">
-                                Please enter a valid coordinate.
+                                Please enter a valid longitude (between -180 and 180).
                             </FormControl.Feedback>
-
-
                         </Col>
                     </Form.Row>
+                    <br/>
+                    <Form.Row>
+                        <div className="create-hydrant-map">
+                            <MapContainer onMapMarkerPlace={this.onMapMarkerPlace} editing={true}/>
+                        </div> 
+                    </Form.Row>
                 </FormGroup>
-
                 <FormGroup controlId="photos">
                     <FormLabel>Photos</FormLabel>
                     <FormControl name="images[]" type="file" onChange={this.updatePhoto}/>

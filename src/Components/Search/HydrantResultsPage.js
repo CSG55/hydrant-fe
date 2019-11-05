@@ -1,20 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {Col, Row} from 'react-bootstrap';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import FlexContainer from '../../common/FlexContainer';
+import MapContainer from '../../common/MapContainer';
 
 const nameFormatter = (cell, row) => {
-  console.log(cell, row);
   return (<Link to="/hydrant/1">{cell}</Link>);
 }
 
 class HydrantResultsPage extends React.Component {
-   constructor(props) {
-      super(props);
-      console.log('in HydrantResultsPage ')
-   }
-
    render() {
     const columns= [{
         dataField: 'id',
@@ -53,16 +48,26 @@ class HydrantResultsPage extends React.Component {
         <React.Fragment>
         {/* React.Fragment allows us to render multiple children without cluttering the DOM with an extra <div></div> */}
           <h1 className="light"> Sample Results Page</h1>
-          <FlexContainer>
-              {/* The data & columns stored in variables above are passed to the table. */}
-              <BootstrapTable
-                  keyField='id'
-                  data={ mockTableData } 
-                  columns={ columns } 
-              />
-              {/* sample google maps location iframe */}
-              <iframe title="fake-map" src="https://www.google.com/maps/d/u/0/embed?mid=1AD8yJVFaA4LoiyKHvOUH8M4qsE68B4xG" width="640" height="480"></iframe>
-          </FlexContainer>
+          <Row>
+              <Col md={6} xs={12}>
+                {/* The data & columns stored in variables above are passed to the table. */}
+                <div className="search-results-table">
+                  <BootstrapTable
+                      keyField='id'
+                      data={ mockTableData } 
+                      columns={ columns } 
+                  />
+                </div>
+            </Col>
+            <Col md={6} xs={12}>
+                <div className="search-results-map">
+                  <MapContainer history={this.props.history}/>
+                </div>
+
+                {/* sample google maps location iframe */}
+                {/* <iframe title="fake-map" src="https://www.google.com/maps/d/u/0/embed?mid=1AD8yJVFaA4LoiyKHvOUH8M4qsE68B4xG" width="640" height="480"></iframe> */}
+            </Col>
+          </Row>
         </React.Fragment>
     );
    }

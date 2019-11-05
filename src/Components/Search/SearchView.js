@@ -9,15 +9,13 @@ class SearchView extends React.Component {
       this.state = {
          showResults: false,
       }
-    console.log('Entered Search view')
-
+      
    this.handleSubmit = this.handleSubmit.bind(this);
    }
 
    handleSubmit(searchParams) {
-      console.log(searchParams);
       // Api call will go here, return results
-      console.log(searchParams)
+      // console.log(searchParams)
       this.setState({showResults: true});
    }
 
@@ -29,7 +27,7 @@ class SearchView extends React.Component {
          <FormCard title="Hydrant Search">
             <HydrantSearchForm onSubmit={this.handleSubmit}/>
          </FormCard>
-         : <HydrantResultsPage/> )
+         : <HydrantResultsPage history={this.props.history}/> )
       );
    }
 }

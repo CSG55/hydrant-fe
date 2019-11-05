@@ -6,6 +6,7 @@ import FlexContainer from '../../common/FlexContainer';
 import sampleMP4 from '../../common/sampleMP4.mp4';
 import sampleOGG from '../../common/sampleOGG.ogv';
 
+// component to display individual reviews
 const ReviewBox = ({name, count, review}) => {
     return (
         <React.Fragment>
@@ -24,11 +25,6 @@ const ReviewBox = ({name, count, review}) => {
 };
 
 class HydrantViewer extends React.Component {
-   constructor() {
-       super();
-    console.log('HydrantViewer')
-   }
-
    render() {
     return (
         <React.Fragment>
