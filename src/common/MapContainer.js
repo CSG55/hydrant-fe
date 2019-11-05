@@ -8,7 +8,6 @@ import {GOOGLE_MAPS_API_KEY} from '../variables.js';
 export class MapContainer extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.history);
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
@@ -34,7 +33,8 @@ export class MapContainer extends React.Component {
     this.onMapClicked = this.onMapClicked.bind(this);
   }
 
-  onMarkerClick = (props, marker, e) =>{
+  // When viewing, clicking a marker shows an InfoWindow
+  onMarkerClick = (props, marker, e) => {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -42,16 +42,17 @@ export class MapContainer extends React.Component {
     })
   };
 
-    onMapClicked = (props) => {
-      if (this.state.showingInfoWindow) {
-        this.setState({
-          showingInfoWindow: false,
-          activeMarker: null
-        })
-      }
-    };
+  // When viewing, clicking the map removes the InfoWindow
+  onMapClicked = (props) => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      })
+    }
+  };
   
-
+  // Upon dragging the marker, perform a function passed in props
   onMarkerDragEnd = (coord, index) => {
     const { latLng } = coord;
     const lat = latLng.lat();
@@ -62,8 +63,8 @@ export class MapContainer extends React.Component {
 
   };
 
+  // display all map markers, and provide a link to the marker's individual page
   displayMarkers = () => {
-    // display all map markers, and provide a link to the marker's individual page
     return this.state.coords.map((store, index) => {
       return (
         <Marker 
