@@ -41,7 +41,6 @@ class CreateHydrantForm extends React.Component {
         const {name, description, lat, long, pictures, video} = this.state;
         const errors = validateForm(name, lat, long);
         const isInvalid = Object.values(errors).some(x => (x === true)); // if one form item has an error, the form is invalid
-        console.log(this.state);
 
         e.preventDefault();
         if (isInvalid){
@@ -82,7 +81,6 @@ class CreateHydrantForm extends React.Component {
     }
 
     onMapMarkerPlace(coords){
-        // console.log('updateMarker', coords);
         this.setState({
             lat:coords.lat,
             long:coords.long,

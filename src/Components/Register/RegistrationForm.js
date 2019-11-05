@@ -47,27 +47,23 @@ class RegistrationForm extends React.Component {
     }
 
     updateUsername(e) {
-        console.log('updateUsername', e.target.value);
         this.setState({
             username: e.target.value
         });
     }
     updatePassword(e) {
-        console.log('updatePassword', e.target.value);
         this.setState({
             password: e.target.value
         });
     }
 
     updateEmail(e) {
-        console.log('updateEmail', e.target.value);
         this.setState({
             email: e.target.value
         });
     }
 
     updateTerms(e){
-        console.log('updateTerms', e.target.checked);
         this.setState({
             acceptTerms: e.target.checked
         });

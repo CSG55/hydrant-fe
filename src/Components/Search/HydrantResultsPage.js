@@ -11,7 +11,6 @@ const nameFormatter = (cell, row) => {
 }
 
 class HydrantResultsPage extends React.Component {
-
    render() {
     const columns= [{
         dataField: 'id',
