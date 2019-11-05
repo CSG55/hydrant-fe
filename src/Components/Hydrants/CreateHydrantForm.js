@@ -4,7 +4,9 @@ import {isValidLong, isValidLat} from '../../common/validators';
 import MapContainer from '../../common/MapContainer'
 // import ImageUploader from 'react-images-upload';
 
-    const validateForm = (name, lat, long) => {
+// returns a boolean array "errors" of each field's validaton status
+// In "errors", a field is true if it is invalid. 
+const validateForm = (name, lat, long) => {
         const errors = {
             name: !name,
             lat: !isValidLat(lat), // use validator function to determine if coordinate is invalid
@@ -49,6 +51,9 @@ class CreateHydrantForm extends React.Component {
             this.props.handleSubmit({name, description, lat, long, pictures, video})
         }
     }
+
+    // update the state for name whenever a user edits the field.
+    // this state is used when validating the field
     updateName(e) {
         this.setState({
             name: e.target.value
@@ -151,7 +156,7 @@ class CreateHydrantForm extends React.Component {
                     <br/>
                     <Form.Row>
                         <div className="create-hydrant-map">
-                            <MapContainer onMarkerDragEnd={this.onMapMarkerPlace} editing={true}/>
+                            <MapContainer onMapMarkerPlace={this.onMapMarkerPlace} editing={true}/>
                         </div> 
                     </Form.Row>
                 </FormGroup>

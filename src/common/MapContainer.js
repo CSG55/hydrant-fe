@@ -52,14 +52,14 @@ export class MapContainer extends React.Component {
     }
   };
   
-  // Upon dragging the marker, perform a function passed in props
+  // Upon dragging the marker, perform onMapMarkerPlace (passed in props)
   onMarkerDragEnd = (coord, index) => {
     const { latLng } = coord;
     const lat = latLng.lat();
     const long = latLng.lng();
 
     // return onMarkerDragEnd passed from props  
-    return this.props.onMarkerDragEnd({lat,long});
+    return this.props.onMapMarkerPlace({lat,long});
 
   };
 
