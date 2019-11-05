@@ -5,7 +5,6 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import MapContainer from '../../common/MapContainer';
 
-
 const nameFormatter = (cell, row) => {
   return (<Link to="/hydrant/1">{cell}</Link>);
 }

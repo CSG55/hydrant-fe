@@ -1,9 +1,13 @@
 import React, { Fragment } from 'react';
 import {Link} from 'react-router-dom';
+import ReactDOM from 'react-dom';
 import { Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
 
 import {GOOGLE_MAPS_API_KEY} from '../variables.js';
 
+const linkFormatter = (text) => {
+  return (<Link to="/hydrant/1">{text}</Link>);
+}
 
 export class MapContainer extends React.Component {
   constructor(props) {
@@ -35,7 +39,6 @@ export class MapContainer extends React.Component {
   }
 
   onMarkerClick = (props, marker, e) =>{
-    console.log(props);
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -78,6 +81,12 @@ export class MapContainer extends React.Component {
     })
   }
 
+  // google-maps-react library has a limitation - it doesnt allow events to fire from within InfoWindow. 
+  // We circumvent this issue by creating a dummy div, then replacing it with our Link button
+  onInfoWindowOpen(props, e) {
+    const button = (<button className="btn btn-primary" onClick={() => this.props.history.push("/hydrant/1")}>View Hydrant</button>);
+    ReactDOM.render(React.Children.only(button), document.getElementById("link"));
+  }
   
   render() {
     const {editing} = this.props;
@@ -111,12 +120,10 @@ export class MapContainer extends React.Component {
           // const containerStyle = {{position: 'absolute', width: '50%', height:'50%'}}
         >
           {this.displayMarkers()}
-          <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
+          <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow} onOpen={e => {this.onInfoWindowOpen(this.props, e)}}>
             <React.Fragment>
               <h1>{this.state.selectedPlace.description}</h1>
-              <button className="btn btn-primary" onClick={() => this.props.history.push("/hydrant/1")}>
-                View Hydrant
-              </button>
+              <div id="link" /> {/* dummy div for the link url button, as InfoWindow is incompatible with events*/}
             </React.Fragment>
         </InfoWindow>
 
@@ -129,3 +136,4 @@ export class MapContainer extends React.Component {
 export default GoogleApiWrapper({
   apiKey: GOOGLE_MAPS_API_KEY
 })(MapContainer);
+ 
