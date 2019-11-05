@@ -5,7 +5,7 @@ import FormCard from '../../common/FormCard';
 class HydrantEditor extends React.Component {
    constructor(props) {
       super(props);
-      console.log('Entered HydrantEditor view')
+   
       this.handleSubmit = this.handleSubmit.bind(this);
    }
 

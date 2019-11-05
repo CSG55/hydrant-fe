@@ -24,11 +24,6 @@ const ReviewBox = ({name, count, review}) => {
 };
 
 class HydrantViewer extends React.Component {
-   constructor() {
-       super();
-    console.log('HydrantViewer')
-   }
-
    render() {
     return (
         <React.Fragment>

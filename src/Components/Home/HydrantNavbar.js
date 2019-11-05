@@ -1,10 +1,6 @@
 import React from 'react';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 class HydrantNavbar extends React.Component {
-    constructor(props){
-        super(props);
-        console.log(this.props, props);
-    }
     render() {
         return (
             <Navbar className = "App-header" expand="lg" >

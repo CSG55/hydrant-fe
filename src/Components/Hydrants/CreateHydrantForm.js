@@ -2,12 +2,12 @@ import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel, Col} from 'react-bootstrap';
 import {isValidLongOrLat} from '../../common/validators';
 import MapContainer from '../../common/MapContainer'
-
 // import ImageUploader from 'react-images-upload';
+
     const validateForm = (name, lat, long) => {
         const errors = {
             name: !name,
-            lat: !isValidLongOrLat(lat),
+            lat: !isValidLongOrLat(lat), // use validator function to determine if coordinate is invalid
             long: !isValidLongOrLat(long),
         };
         console.log(errors);
@@ -53,49 +53,42 @@ class CreateHydrantForm extends React.Component {
         if (isInvalid){
             this.setState({errors});
         } else {
-            console.log(this.state);
             this.props.handleSubmit({name, description, lat, long, pictures, video})
         }
     }
     updateName(e) {
-        console.log('updateName', e.target.value);
         this.setState({
             name: e.target.value
         });
     }
     updateDescription(e) {
-        console.log('updateDescription', e.target.value);
         this.setState({
             description: e.target.value
         });
     }
     updateLat(e) {
-        console.log('updateLat', e.target.value);
         this.setState({
             lat: e.target.value
         });
     }
     updateLong(e) {
-        console.log('updateLong', e.target.value);
         this.setState({
             long: e.target.value
         });
     }
     updatePhoto(e){
-            console.log('updatePhoto', e.target.value);
             this.setState({
                 pictures: e.target.files
             });
     }
     updateVideo(e){
-        console.log('updatevideo', e.target.value);
         this.setState({
             video: e.target.files
         });
     }
 
     onMapMarkerPlace(coords){
-        console.log('updateMarker', coords);
+        // console.log('updateMarker', coords);
         this.setState({
             lat:coords.lat,
             long:coords.long,
