@@ -39,7 +39,7 @@ class RegistrationForm extends React.Component {
 
         e.preventDefault();
         if (isInvalid){
-            this.setState({errors});
+            this.setState({errors}); // show predefined field errors 
         } else {
             this.props.handleSubmit({username, email, password});
         }
