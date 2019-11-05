@@ -22,7 +22,6 @@ class RegistrationForm extends React.Component {
         acceptTerms: false,
         errors: {},
       }
-    console.log('Entered Reg form');
     this.updateUsername = this.updateUsername.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
