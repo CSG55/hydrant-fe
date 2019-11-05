@@ -2,7 +2,8 @@ import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel} from 'react-bootstrap';
 import {isValidEmail, isValidUsername, isValidPassword} from '../../common/validators';
 
-
+// returns a boolean array "errors" of each field's validaton status
+// In "errors", a field is true if it is invalid. 
 const validateForm = (username, email, password, acceptTerms) => {
     const errors = {
         username: !username || !isValidUsername(isValidUsername),
@@ -11,7 +12,8 @@ const validateForm = (username, email, password, acceptTerms) => {
         acceptTerms: !acceptTerms,
     };
     return errors;
-   }
+}
+
 class RegistrationForm extends React.Component {
    constructor(props) {
       super(props);
@@ -44,6 +46,8 @@ class RegistrationForm extends React.Component {
 
     }
 
+    // update the state for username whenever a user edits the field.
+    // this state is used when validating the field
     updateUsername(e) {
         this.setState({
             username: e.target.value
