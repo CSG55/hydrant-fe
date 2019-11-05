@@ -1,14 +1,14 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel, Col} from 'react-bootstrap';
-import {isValidLongOrLat} from '../../common/validators';
+import {isValidLong, isValidLat} from '../../common/validators';
 import MapContainer from '../../common/MapContainer'
 // import ImageUploader from 'react-images-upload';
 
     const validateForm = (name, lat, long) => {
         const errors = {
             name: !name,
-            lat: !isValidLongOrLat(lat), // use validator function to determine if coordinate is invalid
-            long: !isValidLongOrLat(long),
+            lat: !isValidLat(lat), // use validator function to determine if coordinate is invalid
+            long: !isValidLong(long),
         };
         console.log(errors);
         return errors;
@@ -34,20 +34,14 @@ class CreateHydrantForm extends React.Component {
         this.updateVideo = this.updateVideo.bind(this);
         this.onMapMarkerPlace = this.onMapMarkerPlace.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-        // this.updatePhotos = this.updatePhotos.bind(this);
     }
 
-    //    updatePhotos(picture) {
-    //     console.log(picture);
-    //     this.setState({
-    //         pictures: this.state.pictures.concat(picture),
-    //     });
-    // }
 
     onSubmit(e) {
         const {name, description, lat, long, pictures, video} = this.state;
         const errors = validateForm(name, lat, long);
         const isInvalid = Object.values(errors).some(x => (x === true)); // if one form item has an error, the form is invalid
+        console.log(this.state);
 
         e.preventDefault();
         if (isInvalid){
@@ -163,10 +157,6 @@ class CreateHydrantForm extends React.Component {
                         </div> 
                     </Form.Row>
                 </FormGroup>
-                {/* <div style={{position:'relative', height:'100%', width:'100%'}}>
-                    <MapContainer onMarkerDragEnd={this.onMapMarkerPlace} editing={true}/>
-                </div> */}
-
                 <FormGroup controlId="photos">
                     <FormLabel>Photos</FormLabel>
                     <FormControl name="images[]" type="file" onChange={this.updatePhoto}/>
