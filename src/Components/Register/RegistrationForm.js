@@ -1,13 +1,13 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel} from 'react-bootstrap';
-import {isValidEmail} from '../../common/validators';
+import {isValidEmail, isValidUsername, isValidPassword} from '../../common/validators';
 
 
 const validateForm = (username, email, password, acceptTerms) => {
     const errors = {
-        username: !username,
+        username: !username || !isValidUsername(isValidUsername),
         email: !isValidEmail(email), 
-        password: !password,
+        password: !password || !isValidPassword(password),
         acceptTerms: !acceptTerms,
     };
     return errors;
@@ -39,7 +39,6 @@ class RegistrationForm extends React.Component {
         if (isInvalid){
             this.setState({errors});
         } else {
-            console.log(this.state);
             this.props.handleSubmit({username, email, password});
         }
 
@@ -84,7 +83,7 @@ class RegistrationForm extends React.Component {
                     required
                 />
                 <FormControl.Feedback type="invalid">
-                    Please provide a Username.
+                    Please provide an alphanumeric Username.
                 </FormControl.Feedback>
             </FormGroup>
             <FormGroup controlId="password">
@@ -98,7 +97,7 @@ class RegistrationForm extends React.Component {
                     required
                 />
                 <FormControl.Feedback type="invalid">
-                    Please provide a Password.
+                    Please provide an alphanumeric Password of at least 6 digits.
                 </FormControl.Feedback>
 
             </FormGroup>

@@ -5,7 +5,6 @@ import FormCard from '../../common/FormCard';
 class UserRegistration extends React.Component {
    constructor(props) {
    super(props);
-   console.log('Entered Registration view')
    this.handleSubmit = this.handleSubmit.bind(this);
    }
 
