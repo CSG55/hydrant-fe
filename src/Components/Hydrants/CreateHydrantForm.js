@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel, Col} from 'react-bootstrap';
 import {isValidLongOrLat} from '../../common/validators';
-import MapContainer from '../Search/MapContainer.js'
+import MapContainer from '../../common/MapContainer'
 
 // import ImageUploader from 'react-images-upload';
     const validateForm = (name, lat, long) => {

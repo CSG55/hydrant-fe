@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {Col, Row} from 'react-bootstrap';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import MapContainer from './MapContainer';
+import MapContainer from '../../common/MapContainer';
 
 
 const nameFormatter = (cell, row) => {
@@ -11,7 +11,7 @@ const nameFormatter = (cell, row) => {
 }
 
 class HydrantResultsPage extends React.Component {
-  
+
    render() {
     const columns= [{
         dataField: 'id',

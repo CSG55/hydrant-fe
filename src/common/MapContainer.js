@@ -1,7 +1,7 @@
 import React from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
-import {GOOGLE_MAPS_API_KEY} from '../../variables.js';
+import {GOOGLE_MAPS_API_KEY} from '../variables.js';
 
 
 export class MapContainer extends React.Component {
