@@ -11,7 +11,6 @@ class HydrantSearchForm extends React.Component {
           lat:"",
           long:"",
       }
-    console.log('Entered Search form');
     this.updateName = this.updateName.bind(this);
     this.updateRating = this.updateRating.bind(this);
     this.updateLong = this.updateLong.bind(this);
@@ -24,40 +23,35 @@ class HydrantSearchForm extends React.Component {
     onSubmit(e) {
         const {searchName, searchRating} = this.state;
         e.preventDefault();
-        console.log(searchName, searchRating);
         this.props.onSubmit({ searchName, searchRating });
     }
 
+    //fetch the user's browser location
     getUserLocation() {
         navigator.geolocation.getCurrentPosition((location) => {
             this.setState({lat:location.coords.latitude, long: location.coords.longitude});
-            console.log({lat:location.coords.latitude, long: location.coords.longitude});
         });
     }
 
     updateName(e) {
-        console.log('updateName', e.target.value);
         this.setState({
             searchName: e.target.value
         });
     }
 
     updateLong(e) {
-        console.log('updateLong', e.target.value);
         this.setState({
             long: e.target.value
         });
     }
 
     updateLat(e) {
-        console.log('updateLat', e.target.value);
         this.setState({
             lat: e.target.value
         });
     }
 
     updateRating(e){
-        console.log('updateRating', e.target.value);
         this.setState({
             searchRating: e.target.value
         });
@@ -65,7 +59,6 @@ class HydrantSearchForm extends React.Component {
 
    render() {
         const {searchName, searchRating, lat, long} = this.state;
-        console.log(lat, long);
           
         return (
         <Form onSubmit={this.onSubmit}>

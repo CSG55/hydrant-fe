@@ -1,6 +1,8 @@
 import React from 'react';
-import {GOOGLE_MAPS_API_KEY} from '../../variables.js';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+
+import {GOOGLE_MAPS_API_KEY} from '../../variables.js';
+
 
 export class MapContainer extends React.Component {
   constructor(props) {
@@ -15,7 +17,7 @@ export class MapContainer extends React.Component {
           }
         }
       ],  
-      stores: [
+      coords: [ 
               {latitude: 47.359423, longitude: -122.021071},
               {latitude: 47.2052192687988, longitude: -121.988426208496},
               {latitude: 47.6307081, longitude: -122.1434325},
@@ -29,12 +31,14 @@ export class MapContainer extends React.Component {
     const lat = latLng.lat();
     const long = latLng.lng();
 
+    // return onMarkerDragEnd passed from props  
     return this.props.onMarkerDragEnd({lat,long});
 
   };
 
   displayMarkers = () => {
-    return this.state.stores.map((store, index) => {
+    // display all map markers, and provide a link to the marker's individual page
+    return this.state.coords.map((store, index) => {
       return <Marker key={index} id={index} position={{
        lat: store.latitude,
        lng: store.longitude
@@ -47,7 +51,7 @@ export class MapContainer extends React.Component {
   render() {
     const {editing} = this.props;
 
-    if (editing) {
+    if (editing) { // conditionally render a map with one moveable marker when editing prop is passed
       return (
         <Map
           google={this.props.google}
@@ -65,7 +69,7 @@ export class MapContainer extends React.Component {
         ))}
         </Map>
       );
-    } else {
+    } else { // we are viewing predefined markers
       return (
         <Map
           google={this.props.google}
