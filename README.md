@@ -4,7 +4,6 @@
 Kareem Khaled
 400032153
 CS 4WW3
-Worked on Add-on Task #2, answers are under **Bonus Add on #2**
 
 **Hosting URL**
 http://ec2-3-14-144-170.us-east-2.compute.amazonaws.com
@@ -16,59 +15,6 @@ After reading the Specifications for this project, I realized that there was an 
 React is also very snappy with its transitions - because it intelligently modifies the DOM for what is necessary to represent the change. That's miles times faster than refreshing the entire DOM any time a change is made. 
 
 I also saw this project as an opportunity to create a larger-scale React Application from scratch, which I haven't done previously. 
-
-
-**CSS Validator**
-
-The CSS validator returned "Parse Errors" for all but 2 errors shown. The Parse errors are originating not from my stylesheet (App.css), but from an external stylesheet I imported for react-bootstrap styling. (see App.js)
-It seems that variable declarations within CSS caused these issues. 
-
-The only other 2 errors were about 2 non-existant properties. Again, these are errors from external stylesheets, where it is likely that the CSS validator doesn't recognize the types of properties used. 
-
-
-**HTML5 Validator**
-
-The HTML5 validator doesn't work - I receive this error:
-IO Error: Connect to ec2-3-14-144-170.us-east-2.compute.amazonaws.com:3000 [ec2-3-14-144-170.us-east-2.compute.amazonaws.com/3.14.144.170] failed: connect timed out
-
-This is because HTML5 validators do not work with React. 
-Every component file in this project contains a render() function. While this code has a similar structure to HTML5, render() provides a tree of React Elements. React, behind the scenes, maintains a Virtual DOM built from these React Elements. If any change occurs (A state update, for instance), React only changes what is necessary in the actual DOM to represent the changes. This allows for a faster application, along with seamless page transitions. 
-
-**Bonus Add on #2:**
-- Sample video is displayed in
-individual object page using proper
-HTML5 tags, and plays properly:
-This is shown in the Individual Results Page. I used the HTML <video> and <source> tags as was required. 
-
-2di)
-- Describe briefly the different versions of graphics provided in step 2(a); 
-include a sample of HTML code and explain how the different selectors work 
-together. 
-While I did not provide multiple images for my graphics, I will explain a sample:
-```
-<picture>
-  <source media="(max-width: 799px)" srcset="480-picture.jpg">
-  <source media="(min-width: 800px)" srcset="800-picture.jpg">
-  <img src="800-picture.jpg" alt="A good description of this picture">
-</picture>
-```
-Within the <picture> HTML tag - 
-If the first source media condition passes, we show the first source (screen size is 799px or below)
-If the second condition passes, we show the second source (screen size is at least 800px)
-Finally, the img tag is always necessary for showing an image (otherwise an image won't appear!). This is the default case that is shown if: the media conditions were all false, or, the browser didn't support the <picture> element. 
-
-
-2dii)
-- List three positive goals that can be achieved using HTML5 <picture> and 
-<source> attributes. 
-1. Having multiple sources serve as a fallback if a browser doesn't support the picture element.
-2. We can display different images when working with different screen widths.
-3. <picture> allows us to cater to older browsers by its "type" attribute, which the browser can reject if it is an unsupported format.
-
-2diii)
-- List one negative about using HTML5 <picture> and <source> attributes.  How 
-can this negative be mitigated? 
-1. You will need to host multiple images to represent one image. This can be mitigated by optimizing the images. (This should be done anyway so the user doesn't have to download a larger image size when loading your site)
 
 
 **Project Part 1 Notes:**
@@ -93,7 +39,14 @@ widths as low as 320px without
 flaws:
 I use a @media query in App.css. I also used the user's viewport to determine heights of pages, along with font sizes. The external bootstrap stylesheet, which uses @media queries, is also used in this application.
 
+**Project Part 2 Notes:**
 
+- On the user registration page, data of different formats, at least numeric, alphabetic, email and date formats, is validated correctly using Javascript:
+Each  field in the User Registration Page is validated. I did not have a date/alphabetical/numeric field, but I validated the existing email/password/username fields. (see [common/validators.js](validators.js))
+
+- JavaScript in separate file:
+Since I used React, it is not bad practice to include JS within components. In fact, it is necessary to do so for any component.
+The same applies for the JSX code present within some components' render functions. It is not "messy" to do this, as it is one of React's core features. We can take advantage of this if we want to conditionally render different components. 
 
 
 
