@@ -1,13 +1,9 @@
-import React, { Fragment } from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
 
 import {GOOGLE_MAPS_API_KEY} from '../variables.js';
 
-const linkFormatter = (text) => {
-  return (<Link to="/hydrant/1">{text}</Link>);
-}
 
 export class MapContainer extends React.Component {
   constructor(props) {
@@ -97,8 +93,7 @@ export class MapContainer extends React.Component {
           google={this.props.google}
           zoom={8}
           initialCenter={{ lat: 47.444, lng: -122.176}}
-          // const containerStyle = {{position: 'absolute', width: '50%', height:'50%'}}
-          >
+        >
           {this.state.markers.map((marker, index) => (
           <Marker
             position={marker.position}
@@ -117,16 +112,14 @@ export class MapContainer extends React.Component {
           onClick={this.onMapClicked}
           zoom={8}
           initialCenter={{ lat: 47.444, lng: -122.176}}
-          // const containerStyle = {{position: 'absolute', width: '50%', height:'50%'}}
         >
           {this.displayMarkers()}
           <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow} onOpen={e => {this.onInfoWindowOpen(this.props, e)}}>
             <React.Fragment>
-              <h1>{this.state.selectedPlace.description}</h1>
+              <h4>{this.state.selectedPlace.description}</h4>
               <div id="link" /> {/* dummy div for the link url button, as InfoWindow is incompatible with events*/}
             </React.Fragment>
-        </InfoWindow>
-
+          </InfoWindow>
         </Map>
     );
     }
