@@ -124,8 +124,6 @@ video {
 /* Color and padding to containers, including the FlexContainer */
 .container-style{
   padding: 5px;
-  /* align-items: center; */
-  min-height: 100vh;
 }
 
 /* We want to have a margin for our flexbox on the desktop site, 
