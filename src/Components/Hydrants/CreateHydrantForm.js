@@ -133,7 +133,7 @@ class CreateHydrantForm extends React.Component {
                                 required
                             />
                             <FormControl.Feedback type="invalid">
-                                Please enter a valid coordinate.
+                                Please enter a valid latitude (between -90 and 90).
                             </FormControl.Feedback>
                         </Col>
                         <Col>
@@ -146,7 +146,7 @@ class CreateHydrantForm extends React.Component {
                                 required
                             />
                             <FormControl.Feedback type="invalid">
-                                Please enter a valid coordinate.
+                                Please enter a valid longitude (between -180 and 180).
                             </FormControl.Feedback>
                         </Col>
                     </Form.Row>
