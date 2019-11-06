@@ -6,7 +6,7 @@ Kareem Khaled
 CS 4WW3
 
 **Hosting URL**
-http://ec2-3-14-144-170.us-east-2.compute.amazonaws.com
+https://hydrant.gq
 
 **Why I chose React**
 
