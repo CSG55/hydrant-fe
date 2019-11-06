@@ -87,8 +87,8 @@ class CreateHydrantForm extends React.Component {
 
     onMapMarkerPlace(coords){
         this.setState({
-            lat:coords.lat,
-            long:coords.long,
+            lat: coords.lat,
+            long: coords.long,
         });
     }
 
@@ -129,6 +129,7 @@ class CreateHydrantForm extends React.Component {
                         <Col>
                             <FormControl 
                                 type="number"
+                                step="any"
                                 placeholder="Enter Latitude..."
                                 onChange={this.updateLat}
                                 value={lat}
@@ -142,6 +143,7 @@ class CreateHydrantForm extends React.Component {
                         <Col>
                             <FormControl 
                                 type="number"
+                                step="any"
                                 placeholder="Enter Longitude..."
                                 onChange={this.updateLong}
                                 value={long}

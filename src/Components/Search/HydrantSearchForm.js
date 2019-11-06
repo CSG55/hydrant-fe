@@ -99,12 +99,14 @@ class HydrantSearchForm extends React.Component {
                     <Col xs={6} md={8}> {/* On mobile, this column is half the row width. On desktop, it is 2/3 */}
                     <FormControl 
                         type="number"
+                        step="any"
                         placeholder="Enter Latitude..."
                         onChange={this.updateLat}
                         value={lat}
                     />
                     <FormControl 
                         type="number"
+                        step="any"
                         placeholder="Enter Longitude..."
                         onChange={this.updateLong}
                         value={long}
