@@ -1,5 +1,9 @@
 @import './variables.css';
 
+body {
+  overflow-y: scroll; /* fix for jumping scrollbar with maps */
+}
+
 /* aligning the base app to the center */
 .App {
   text-align: center;
@@ -7,9 +11,6 @@
   min-height: 100vh;
   /* width:100%; */
   /* padding-bottom:60px; */
-}
-body {
-  overflow-y: scroll; /* fix for jumping scrollbar with maps */
 }
 
 /* Setting the height for the hydrant logo
