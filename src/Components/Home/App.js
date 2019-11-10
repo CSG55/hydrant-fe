@@ -12,20 +12,21 @@ function App() {
   return (
 <div className="App">
   {/* This NavBar serves as both the header and the menu for the app */}
-  <HydrantNavbar/>
-  <div className="App-body">
     {/* BrowserRouter is used for more optimal navigation in-app.
     Refreshes are not performed when switching pages under the router.  */}
     <BrowserRouter> 
-      <Switch>
-        <Route exact path="/hydrant/:id(\d+)" component={HydrantViewer} />
-        <Route exact path="/search" component={SearchView} />
-        <Route exact path="/register" component={UserRegistration} />
-        <Route exact path="/create" component={CreateHydrantForm} />
-        <Route path="/" component={Homepage} />
-      </Switch>
+      <HydrantNavbar/>
+      <div className="App-body">
+        <Switch>
+          <Route exact path="/hydrant/:id(\d+)" component={HydrantViewer} />
+          <Route exact path="/search" component={SearchView} />
+          <Route exact path="/register" component={UserRegistration} />
+          <Route exact path="/create" component={CreateHydrantForm} />
+          <Route path="/" component={Homepage} />
+        </Switch>
+      </div>
+
     </BrowserRouter>
-  </div>
   <div className="App-footer">
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   </div>

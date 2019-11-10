@@ -27,6 +27,11 @@ Also defining a border around left, right, bottom of header */
   border-width: 0px 1px 2px 1px
 }
 
+/* Sets color of navigation brand to black */
+.navbar-brand > a {
+  color: var(--plain-black);
+}
+
 /* Sets base color of navigation buttons to black
 Overrides react-bootstrap's NavBar CSS */
 .App-header.navbar-light .navbar-nav .nav-link {
