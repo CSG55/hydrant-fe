@@ -28,8 +28,10 @@ Also defining a border around left, right, bottom of header */
 }
 
 /* Sets color of navigation brand to black */
-.navbar-brand > a {
+.navbar-brand > a,
+.navbar-brand > a:hover {
   color: var(--plain-black);
+  text-decoration: none;
 }
 
 /* Sets base color of navigation buttons to black
