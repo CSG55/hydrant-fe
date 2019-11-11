@@ -9,7 +9,6 @@ class UserRegistration extends React.Component {
    }
 
    handleSubmit(registrationInfo) {
-      console.log(registrationInfo);
       this.props.history.push('/'); // return to home after registration
    }
 

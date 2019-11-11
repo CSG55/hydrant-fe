@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './css/App.css';
 import SearchView from './Components/Search/SearchView';
 import HydrantViewer from './Components/Hydrants/HydrantViewer';
 import Homepage from './Components/Home/Homepage';
 import UserRegistration from './Components/Register/UserRegistration';
 import CreateHydrantForm from './Components/Hydrants/HydrantEditor';
 import HydrantNavbar from './Components/Home/HydrantNavbar';
+
+import './css/App.css';
 
 function App() {
   return (

@@ -3,6 +3,9 @@ import HydrantSearchForm from './HydrantSearchForm';
 import HydrantResultsPage from './HydrantResultsPage';
 import FormCard from '../../common/FormCard';
 
+import '../../css/Search.css';
+
+
 class SearchView extends React.Component {
    constructor(props) {
       super(props);

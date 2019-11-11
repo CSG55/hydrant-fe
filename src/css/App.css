@@ -94,26 +94,6 @@ Also defining a border around left, right, bottom of header */
   color: #09d3ac;
 }
 
-/* Styles for the reusable form card. The size of the form card is dependent on the device's display */
-.hydrant-form-card {
-  width: 100vmin;
-}
-
-/* consistent coloring for all form headers */
-.hydrant-form-card .card-header {
-  background-color: var(--hydrant-faded-red)
-}
-
-/* restricting text size to a smaller level for check box labels */
-.form-check {
-  font-size: calc(10px + 1vmin);
-}
-
-/* making checkbox more clickable */
-.form-check-input {
-  zoom:1.6;
-}
-
 /* This is necessary to prevent iframe from overextending its container */
 iframe {
   display:block;
@@ -132,7 +112,7 @@ video {
 }
 
 /* Color and padding to containers, including the FlexContainer */
-.container-style{
+.container-style {
   padding: 5px;
 }
 
@@ -161,6 +141,28 @@ h1.light {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
+
+
+/* Styles for the reusable form card. The size of the form card is dependent on the device's display */
+.hydrant-form-card {
+  width: 100vmin;
+}
+
+/* consistent coloring for all form headers */
+.hydrant-form-card .card-header {
+  background-color: var(--hydrant-faded-red)
+}
+
+/* restricting text size to a smaller level for check box labels */
+.form-check {
+  font-size: calc(10px + 1vmin);
+}
+
+/* making checkbox more clickable */
+.form-check-input {
+  zoom:1.6;
+}
+
 /* making form errors a smaller font than the default 80% */
 div.invalid-feedback {
   font-size: 60%;
@@ -172,20 +174,4 @@ div.invalid-feedback {
   color: red;
 }
 
-.create-hydrant-map {
-  position: relative;
-  height: 300px;
-  width: 100%;
-}
 
-/* margin and background color for search table container */
-.search-results-table .react-bootstrap-table {
-  margin:5px;
-  background-color:var(--plain-white);
-}
-
-.search-results-map {
-  position: relative;
-  margin: 5px 5px 5px 5px;
-  height: 300px;
-}
