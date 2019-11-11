@@ -5,7 +5,7 @@ import { withRouter, Link} from 'react-router-dom';
 class HydrantNavbar extends React.Component {
     constructor(props){
         super(props);
-        this.state ={ navExpanded: false };
+        this.state = { navExpanded: false };
 
         this.setNavExpanded = this.setNavExpanded.bind(this);
         this.onNavlinkClick = this.onNavlinkClick.bind(this);
