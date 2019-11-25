@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel, Col} from 'react-bootstrap';
 import {isValidLong, isValidLat} from '../../common/validators';
-import MapContainer from '../../common/MapContainer'
+import MapContainer from '../../common/MapContainer';
 // import ImageUploader from 'react-images-upload';
 
 // returns a boolean array "errors" of each field's validaton status
@@ -118,7 +118,7 @@ class CreateHydrantForm extends React.Component {
                     <FormControl 
                         as="textarea"
                         placeholder="Enter your Hydrant description..."
-                        onChange={this.updateFirstName}
+                        onChange={this.updateDescription}
                         defaultValue={description}
                     />
                 </FormGroup>

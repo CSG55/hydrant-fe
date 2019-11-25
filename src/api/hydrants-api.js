@@ -11,7 +11,7 @@ let axiosConfig = {
   
 
 function createHydrant(data) {
-    axios.post(`localhost:5000/hydrants`, data, axiosConfig)
+    axios.post(`localhost:5000/hydrants`, {name: data.name, description: data.description}, axiosConfig)
     .then(res => {
         console.log(res);
         return res;
