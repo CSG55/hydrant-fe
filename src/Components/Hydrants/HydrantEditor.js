@@ -1,7 +1,7 @@
 import React from 'react';
 import HydrantCreateForm from './CreateHydrantForm';
 import FormCard from '../../common/FormCard';
-import createHydrant from '../../api/hydrants-api';
+import {createHydrant} from '../../api/hydrants-api';
 
 import '../../css/Hydrants.css';
 

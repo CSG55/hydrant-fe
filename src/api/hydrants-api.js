@@ -1,5 +1,5 @@
 import axios from 'axios';
-import TEST_TOKEN from '../variables';
+import {TEST_TOKEN} from '../variables';
 
 let axiosConfig = {
     headers: {
@@ -10,8 +10,20 @@ let axiosConfig = {
   };
   
 
-function createHydrant(data) {
-    axios.post(`localhost:5000/hydrants`, {name: data.name, description: data.description}, axiosConfig)
+  function createHydrant(data) {
+    axios.post('http://localhost:5000/hydrants/', data, axiosConfig)
+    .then(res => {
+        console.log(res.data);
+        return res.data;
+    })
+    .catch((err) => {
+        // fetchHydrant();
+        console.log("AXIOS ERROR: ", err);
+    })
+      
+}
+function fetchHydrant() {
+    axios.get('http://localhost:5000/hydrants/?id=1/', axiosConfig)
     .then(res => {
         console.log(res);
         return res;
@@ -23,5 +35,6 @@ function createHydrant(data) {
 }
 
 export {
-    createHydrant
+    createHydrant,
+    fetchHydrant,
 };
