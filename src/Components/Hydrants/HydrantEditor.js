@@ -14,6 +14,7 @@ class HydrantEditor extends React.Component {
 
    handleSubmit(hydrantSubmission){
       // An api call will be added here to submit these values
+      console.log(hydrantSubmission);
       this.props.history.push('/hydrant/1'); // navigate to sample hydrant page
    }
    render() {
