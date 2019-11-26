@@ -48,13 +48,11 @@ class HydrantViewer extends React.Component {
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         const hydrant_id = this.props.match.params.id;
-        fetchHydrant(hydrant_id).then(res => {
+        fetchHydrant({id: hydrant_id}).then(res => {
             const {data: {0: {reviews, name, image_url, description, long, lat}}} = res;
             this.setState({reviews, name, image_url, description, long, lat});
-            console.log(res.data);
-            return res.data;
         })
         .catch((err) => {
             console.log("AXIOS ERROR: ", err);

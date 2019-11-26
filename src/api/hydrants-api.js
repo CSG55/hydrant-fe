@@ -7,15 +7,14 @@ let axiosConfig = {
         'authorization': TEST_TOKEN,
         // "Access-Control-Allow-Origin": "*",
     },
-    params: {id:1}
   };
   
 
 function createHydrant(data) {
     return axios.post('http://localhost:5000/hydrants/', data, axiosConfig);
 }
-function fetchHydrant(hydrant_id) {
-    return axios.get('http://localhost:5000/hydrants/', {...axiosConfig, params: {id:hydrant_id}})      
+function fetchHydrant(data) {
+    return axios.get('http://localhost:5000/hydrants/', {...axiosConfig, params: {id:data.id, name:data.searchName, rating: data.searchRating, long: data.long, lat: data.lat }})      
 }
 
 export {

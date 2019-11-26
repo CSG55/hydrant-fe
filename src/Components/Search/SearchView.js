@@ -13,6 +13,7 @@ class SearchView extends React.Component {
       super(props);
       this.state = {
          showResults: false,
+         searchResults:[],
       }
       
    this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,9 +34,14 @@ class SearchView extends React.Component {
 
 
    handleSubmit(searchParams) {
-      // Api call will go here, return results
       console.log(searchParams);
-      this.setState({showResults: true});
+      fetchHydrant(searchParams).then(res => {
+          this.setState({searchResults: res.data, showResults: true});
+          console.log(res.data);
+      })
+      .catch((err) => {
+          console.log("AXIOS ERROR: ", err);
+      })
    }
 
    render() {
