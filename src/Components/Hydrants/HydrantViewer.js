@@ -60,8 +60,9 @@ class HydrantViewer extends React.Component {
             <h1 className="light"> {name} </h1>
             <FlexContainer>
                 <Card className="text-center">
-                    <Card.Title> {name}</Card.Title>
-                    <Card.Text> {name} is from ({lat}, {long}). </Card.Text>
+                    <Card.Title>{name}</Card.Title>
+                    <Card.Text> {description} </Card.Text>
+                    {/* <Card.Text> {name} is from ({lat}, {long}). </Card.Text> */}
                     {/* <Card.Img variant="top" src={sample_hydrant} alt="old sample hydrant from Puerto Rico" /> */}
                 </Card>
                 <Card className="text-center">
