@@ -9,6 +9,15 @@ import {fetchHydrant} from '../../api/hydrants-api';
 
 
 // component to display individual reviews
+const HydrantViewerCard = (props) => {
+    return (
+            <Card className={"hydrant-viewer-card"}>
+                {props.children}
+            </Card>
+        );
+};
+
+// component to display individual reviews
 const ReviewBox = ({name, count, review}) => {
     return (
         <React.Fragment>
@@ -59,28 +68,28 @@ class HydrantViewer extends React.Component {
         <React.Fragment>
             <h1 className="light"> {name} </h1>
             <FlexContainer>
-                <Card className="text-center">
+                <HydrantViewerCard>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text> {description} </Card.Text>
-                </Card>
-                <Card className="text-center">
+                </HydrantViewerCard>
+                <HydrantViewerCard>
                     <Card.Title> Image</Card.Title>
                     <Card.Img variant="top" src={sample_hydrant} alt="old sample hydrant from Puerto Rico" />
-                </Card>
-                <Card className="text-center">
+                </HydrantViewerCard>
+                <HydrantViewerCard>
                     <Card.Title> Reviews </Card.Title>
                     {reviews.map(review => <ReviewBox name={review.title} rating={review.rating} review={review.review_text} />)}
-                </Card>
+                </HydrantViewerCard>
             </FlexContainer>
             <FlexContainer>
-                <Card className="text-center">
+                <HydrantViewerCard>
                     <Card.Title> Location </Card.Title>
                     <Card.Text> {name} is from <br/> ({lat}, {long}) </Card.Text>
                     <Card.Body> 
                         <iframe title="sample-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876754.5708617107!2d-68.74076090957921!3d18.398354668289443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c03686fe268196f%3A0xad6b7f0f5c935adc!2sSan%20Juan%2C%20Puerto%20Rico!5e0!3m2!1sen!2sca!4v1570304557657!5m2!1sen!2sca" width="400" height="300" ></iframe> 
                     </Card.Body>
-                </Card>
-                <Card className="text-center">
+                </HydrantViewerCard>
+                <HydrantViewerCard>
                     <Card.Title> Video </Card.Title>
                     <Card.Body>
                     {/* HTML5 video, that renders either a sample mp4 or an ogg, as long as the browser supports it */}
@@ -89,7 +98,7 @@ class HydrantViewer extends React.Component {
                         <source src={sampleOGG} type="video/ogg" />Your browser does not support the video tag. I suggest you upgrade your browser.
                     </video>
                     </Card.Body>
-                </Card>
+                </HydrantViewerCard>
 
             </FlexContainer>
         </React.Fragment>

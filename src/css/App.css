@@ -153,6 +153,11 @@ h1.light {
   background-color: var(--hydrant-faded-red)
 }
 
+.hydrant-viewer-card.card {
+  min-width: 200px;
+  text-align: center;
+}
+
 /* restricting text size to a smaller level for check box labels */
 .form-check {
   font-size: calc(10px + 1vmin);
