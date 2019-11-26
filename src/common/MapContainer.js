@@ -50,7 +50,8 @@ export class MapContainer extends React.Component {
 
   // display all map markers, and provide a link to the marker's individual page
   displayMarkers = () => {
-    return this.props.hydrants.map((hydrant, index) => {
+    return this.props.hydrantList.map((hydrant, index) => {
+      console.log(index,hydrant);
       return (
         <Marker 
           key={index}
@@ -71,7 +72,8 @@ export class MapContainer extends React.Component {
   }
   
   render() {
-    const {editing} = this.props;
+    const {editing, hydrantList} = this.props;
+    console.log(hydrantList[0].lat, hydrantList[0].long);
 
     if (editing) { // conditionally render a map with one moveable marker when editing prop is passed
       return (
@@ -97,7 +99,7 @@ export class MapContainer extends React.Component {
           google={this.props.google}
           onClick={this.onMapClicked}
           zoom={8}
-          initialCenter={{ lat: 47.444, lng: -122.176}} //default is Seattle
+          initialCenter={{ lat: hydrantList[0].lat, lng: hydrantList[0].long}} 
         >
           {this.displayMarkers()}
           <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow} onOpen={e => {this.onInfoWindowOpen(this.props, e)}}>

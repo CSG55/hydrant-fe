@@ -6,6 +6,7 @@ import FlexContainer from '../../common/FlexContainer';
 import sampleMP4 from '../../common/sampleMP4.mp4';
 import sampleOGG from '../../common/sampleOGG.ogv';
 import {fetchHydrant} from '../../api/hydrants-api';
+import MapContainer from '../../common/MapContainer';
 
 
 // component to display individual reviews
@@ -52,7 +53,7 @@ class HydrantViewer extends React.Component {
         const hydrant_id = this.props.match.params.id;
         fetchHydrant({id: hydrant_id}).then(res => {
             const {data: {0: {reviews, name, image_url, description, long, lat}}} = res;
-            this.setState({reviews, name, image_url, description, long, lat});
+            this.setState({hydrant: res.data, reviews, name, image_url, description, long, lat});
         })
         .catch((err) => {
             console.log("AXIOS ERROR: ", err);
@@ -84,7 +85,11 @@ class HydrantViewer extends React.Component {
                     <Card.Title> Location </Card.Title>
                     <Card.Text> {name} is from <br/> ({lat}, {long}) </Card.Text>
                     <Card.Body> 
-                        <iframe title="sample-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876754.5708617107!2d-68.74076090957921!3d18.398354668289443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c03686fe268196f%3A0xad6b7f0f5c935adc!2sSan%20Juan%2C%20Puerto%20Rico!5e0!3m2!1sen!2sca!4v1570304557657!5m2!1sen!2sca" width="400" height="300" ></iframe> 
+                    {this.state.hydrant && 
+                        <div className="hydrant-viewer-map">
+                            <MapContainer history={this.props.history} hydrantList={this.state.hydrant}/>
+                        </div>
+                    }
                     </Card.Body>
                 </HydrantViewerCard>
                 <HydrantViewerCard>
