@@ -30,7 +30,7 @@ class HydrantViewer extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            reviews: null,
+            reviews: [],
             name: "",
             image_url:"",
             description:"",
@@ -38,10 +38,12 @@ class HydrantViewer extends React.Component {
             lat: null,
         }
     }
-    
+
     componentWillMount(){
         const hydrant_id = this.props.match.params.id;
         fetchHydrant(hydrant_id).then(res => {
+            const {data: {0: {reviews, name, image_url, description, long, lat}}} = res;
+            this.setState({reviews, name, image_url, description, long, lat});
             console.log(res.data);
             return res.data;
         })
@@ -51,13 +53,15 @@ class HydrantViewer extends React.Component {
     }
 
    render() {
+    const {reviews, name, image_url, description, long, lat} = this.state;
+    
     return (
         <React.Fragment>
-            <h1 className="light"> Sample Hydrant Page </h1>
+            <h1 className="light"> {name} </h1>
             <FlexContainer>
                 <Card className="text-center">
-                    <Card.Title> Old Johnny</Card.Title>
-                    <Card.Text> Old Johnny is from San Juan, Puerto Rico. </Card.Text>
+                    <Card.Title> {name}</Card.Title>
+                    <Card.Text> {name} is from ({lat}, {long}). </Card.Text>
                     {/* <Card.Img variant="top" src={sample_hydrant} alt="old sample hydrant from Puerto Rico" /> */}
                 </Card>
                 <Card className="text-center">
@@ -66,10 +70,7 @@ class HydrantViewer extends React.Component {
                 </Card>
                 <Card className="text-center">
                     <Card.Title> Reviews </Card.Title>
-                    {/* <Card.Body>  */}
-                    <ReviewBox name="John Smith" rating={5} review={"This hydrant saved my massive bourgeois mansion from a snowstorm!"}/>
-                    <ReviewBox name="Steve Bennett" rating={2} review={"They put this in my parking spot! At least it looks vintage..."}/>
-                    {/* </Card.Body> */}
+                    {reviews.map(review => <ReviewBox name={review.title} rating={review.rating} review={review.review_text} />)}
                 </Card>
             </FlexContainer>
             <FlexContainer>
