@@ -3,6 +3,8 @@ import HydrantSearchForm from './HydrantSearchForm';
 import HydrantResultsPage from './HydrantResultsPage';
 import FormCard from '../../common/FormCard';
 
+import {fetchHydrant} from '../../api/hydrants-api';
+
 import '../../css/Search.css';
 
 
@@ -16,9 +18,23 @@ class SearchView extends React.Component {
    this.handleSubmit = this.handleSubmit.bind(this);
    }
 
+//    componentWillMount(){
+//       const hydrant_id = this.props.match.params.id;
+//       fetchHydrant(hydrant_id).then(res => {
+//           const {data: {0: {reviews, name, image_url, description, long, lat}}} = res;
+//           this.setState({reviews, name, image_url, description, long, lat});
+//           console.log(res.data);
+//           return res.data;
+//       })
+//       .catch((err) => {
+//           console.log("AXIOS ERROR: ", err);
+//       })
+//   }
+
+
    handleSubmit(searchParams) {
       // Api call will go here, return results
-      // console.log(searchParams)
+      console.log(searchParams);
       this.setState({showResults: true});
    }
 
