@@ -8,9 +8,14 @@ import MapContainer from '../../common/MapContainer';
 const nameFormatter = (cell, row) => {
   return (<Link to="/hydrant/1">{cell}</Link>);
 }
+const ratingFormatter = (cell, row) => {
+  return(cell['0'] ? cell['0'].rating: "No Rating" );
+}
 
 class HydrantResultsPage extends React.Component {
    render() {
+    const {searchResults} = this.props;
+
     const columns= [{
         dataField: 'id',
         text: 'Hydrant ID',
@@ -22,10 +27,15 @@ class HydrantResultsPage extends React.Component {
         formatter: nameFormatter
       },
       {
-        dataField: 'rating',
+        dataField: 'reviews',
         text: 'Rating',
+        formatter: ratingFormatter
+
       }];
-  
+      const tableData = searchResults;
+
+
+
       const mockTableData = [
         {
           id: 1,
@@ -54,7 +64,7 @@ class HydrantResultsPage extends React.Component {
                 <div className="search-results-table">
                   <BootstrapTable
                       keyField='id'
-                      data={ mockTableData } 
+                      data={ tableData } 
                       columns={ columns } 
                   />
                 </div>
