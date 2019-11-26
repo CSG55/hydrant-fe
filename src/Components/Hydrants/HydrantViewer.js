@@ -5,6 +5,8 @@ import ReactStars from 'react-stars'
 import FlexContainer from '../../common/FlexContainer';
 import sampleMP4 from '../../common/sampleMP4.mp4';
 import sampleOGG from '../../common/sampleOGG.ogv';
+import {fetchHydrant} from '../../api/hydrants-api';
+
 
 // component to display individual reviews
 const ReviewBox = ({name, count, review}) => {
@@ -25,6 +27,29 @@ const ReviewBox = ({name, count, review}) => {
 };
 
 class HydrantViewer extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            reviews: null,
+            name: "",
+            image_url:"",
+            description:"",
+            long: null,
+            lat: null,
+        }
+    }
+    
+    componentWillMount(){
+        const hydrant_id = this.props.match.params.id;
+        fetchHydrant(hydrant_id).then(res => {
+            console.log(res.data);
+            return res.data;
+        })
+        .catch((err) => {
+            console.log("AXIOS ERROR: ", err);
+        })
+    }
+
    render() {
     return (
         <React.Fragment>

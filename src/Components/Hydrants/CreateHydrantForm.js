@@ -2,6 +2,8 @@ import React from 'react';
 import {Button, FormControl, FormGroup, Form, FormLabel, Col} from 'react-bootstrap';
 import {isValidLong, isValidLat} from '../../common/validators';
 import MapContainer from '../../common/MapContainer';
+import {createHydrant} from '../../api/hydrants-api';
+
 // import ImageUploader from 'react-images-upload';
 
 // returns a boolean array "errors" of each field's validaton status
