@@ -71,7 +71,7 @@ Scales the contents to be centered, also based on the minimum of the user's disp
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  /* padding-bottom: 10vh; /* padding matches height of footer */ 
+  padding-bottom: 10vh; /* padding matches height of footer */
 }
 
 /* Color for Header/NavBar. 
