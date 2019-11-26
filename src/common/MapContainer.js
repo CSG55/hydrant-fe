@@ -12,21 +12,6 @@ export class MapContainer extends React.Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},  
-      markers: [
-        {
-          name: "Current position",
-          position: {
-            lat: 47.6062,
-            lng: -122.3321
-          }
-        }
-      ],  
-      coords: [ 
-              {latitude: 47.359423, longitude: -122.021071, description:'Coord1'},
-              {latitude: 47.2052192687988, longitude: -121.988426208496, description:'Coord2'},
-              {latitude: 47.6307081, longitude: -122.1434325, description:'Coord3'},
-              {latitude: 47.3084488, longitude: -122.2140121, description:'Coord4'},
-              {latitude: 47.5524695, longitude: -122.0425407, description:'Coord5'}]
     };
 
     this.onMarkerClick = this.onMarkerClick.bind(this);
@@ -65,13 +50,13 @@ export class MapContainer extends React.Component {
 
   // display all map markers, and provide a link to the marker's individual page
   displayMarkers = () => {
-    return this.state.coords.map((store, index) => {
+    return this.props.hydrants.map((hydrant, index) => {
       return (
         <Marker 
           key={index}
           id={index}
-          position={{lat: store.latitude, lng: store.longitude}}
-          description={store.description}
+          position={{lat: hydrant.lat, lng: hydrant.long}}
+          description={hydrant.name}
           onClick={this.onMarkerClick}
         />
       );
@@ -93,7 +78,7 @@ export class MapContainer extends React.Component {
         <Map
           google={this.props.google}
           zoom={8}
-          initialCenter={{ lat: 47.444, lng: -122.176}}
+          initialCenter={{ lat: 47.444, lng: -122.176}} //default is Seattle
         >
           {this.state.markers.map((marker, index) => (
           <Marker
@@ -112,7 +97,7 @@ export class MapContainer extends React.Component {
           google={this.props.google}
           onClick={this.onMapClicked}
           zoom={8}
-          initialCenter={{ lat: 47.444, lng: -122.176}}
+          initialCenter={{ lat: 47.444, lng: -122.176}} //default is Seattle
         >
           {this.displayMarkers()}
           <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow} onOpen={e => {this.onInfoWindowOpen(this.props, e)}}>

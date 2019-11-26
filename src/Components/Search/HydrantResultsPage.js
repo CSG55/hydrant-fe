@@ -37,23 +37,23 @@ class HydrantResultsPage extends React.Component {
 
 
 
-      const mockTableData = [
-        {
-          id: 1,
-          name: 'Hydro One',
-          rating: 'Five stars'
-        },
-        {
-          id: 2,
-          name: 'Hydrant Too',
-          rating: 'Three stars'
-        },
-        {
-          id: 3,
-          name: 'HydranThree',
-          rating: 'One star'
-        },
-      ];
+    //   const mockTableData = [
+    //     {
+    //       id: 1,
+    //       name: 'Hydro One',
+    //       rating: 'Five stars'
+    //     },
+    //     {
+    //       id: 2,
+    //       name: 'Hydrant Too',
+    //       rating: 'Three stars'
+    //     },
+    //     {
+    //       id: 3,
+    //       name: 'HydranThree',
+    //       rating: 'One star'
+    //     },
+    //   ];
 
       return (
         <React.Fragment>
@@ -72,7 +72,7 @@ class HydrantResultsPage extends React.Component {
             </Col>
             <Col md={6} xs={12}>
                 <div className="search-results-map">
-                  <MapContainer history={this.props.history}/>
+                  <MapContainer history={this.props.history} hydrants={searchResults}/>
                 </div>
 
                 {/* sample google maps location iframe */}

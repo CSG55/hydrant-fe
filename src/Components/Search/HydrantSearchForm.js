@@ -23,7 +23,7 @@ class HydrantSearchForm extends React.Component {
     onSubmit(e) {
         const {searchName, searchRating, long, lat} = this.state;
         e.preventDefault();
-        this.props.onSubmit({ searchName, searchRating, long, lat });
+        this.props.onSubmit({ searchName, avg_rating: searchRating, long, lat });
     }
 
     //fetch the user's browser location
