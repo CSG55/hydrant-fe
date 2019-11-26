@@ -4,12 +4,13 @@ import {Col, Row} from 'react-bootstrap';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import MapContainer from '../../common/MapContainer';
-
 const nameFormatter = (cell, row) => {
   return (<Link to="/hydrant/1">{cell}</Link>);
 }
-const ratingFormatter = (cell, row) => {
-  return(cell['0'] ? cell['0'].rating: "No Rating" );
+const averageRatingFormatter = (cell, row) => {
+  if (cell.length===0) return "No Reviews"; //reviews array is empty
+  const sumRatings = cell.reduce((a,b) => a + b.rating, 0);
+  return(sumRatings/cell.length);
 }
 
 class HydrantResultsPage extends React.Component {
@@ -29,7 +30,7 @@ class HydrantResultsPage extends React.Component {
       {
         dataField: 'reviews',
         text: 'Rating',
-        formatter: ratingFormatter
+        formatter: averageRatingFormatter
 
       }];
       const tableData = searchResults;
