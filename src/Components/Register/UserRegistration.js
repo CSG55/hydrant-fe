@@ -2,6 +2,7 @@ import React from 'react';
 import RegistrationForm from './RegistrationForm';
 import FormCard from '../../common/FormCard';
 
+import { registerUser } from "../../api/users-api";
 class UserRegistration extends React.Component {
    constructor(props) {
       super(props);
@@ -9,7 +10,12 @@ class UserRegistration extends React.Component {
    }
 
    handleSubmit(registrationInfo) {
-      this.props.history.push('/'); // return to home after registration
+      registerUser(registrationInfo).then((res) => {
+         this.props.history.push('/'); // return to home after registration
+      }).catch((err) => {
+         console.log("AXIOS ERROR: ", err);
+     })
+
    }
 
    render() {
