@@ -18,7 +18,7 @@ class HydrantEditor extends React.Component {
       console.log(hydrantSubmission);
       createHydrant(hydrantSubmission).then((res) => {
          console.log(res);
-         this.props.history.push(`/hydrant/${res.id}`); // navigate to sample hydrant page
+         this.props.history.push(`/hydrant/${res.data.id}`); // navigate to sample hydrant page
       })
       .catch((err) => {
           console.log("AXIOS ERROR: ", err);
