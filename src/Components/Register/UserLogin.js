@@ -1,6 +1,8 @@
 import React from 'react';
+import Cookies from 'universal-cookie';
 import LoginForm from './LoginForm';
 import FormCard from '../../common/FormCard';
+
 
 import { loginUser } from "../../api/users-api";
 
@@ -12,7 +14,8 @@ class UserLogin extends React.Component {
 
     handleSubmit(registrationInfo) {
         loginUser(registrationInfo).then((res) => {
-            console.log(res);
+            const cookies = new Cookies();
+            cookies.set('token', `TOKEN ${res.data.token}`, { path: '/' });
             this.props.history.push('/'); // return to home after login
         }).catch((err) => {
             console.log("AXIOS ERROR: ", err);

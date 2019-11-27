@@ -1,4 +1,5 @@
 import React from 'react';
+import Cookies from 'universal-cookie';
 import RegistrationForm from './RegistrationForm';
 import FormCard from '../../common/FormCard';
 
@@ -12,6 +13,9 @@ class UserRegistration extends React.Component {
 
    handleSubmit(registrationInfo) {
       registerUser(registrationInfo).then((res) => {
+         const cookies = new Cookies();
+         cookies.set('token', `TOKEN ${res.data.token}`, { path: '/' });
+
          this.props.history.push('/'); // return to home after registration
       }).catch((err) => {
          console.log("AXIOS ERROR: ", err);

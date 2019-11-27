@@ -1,13 +1,17 @@
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 import {TEST_TOKEN} from '../variables';
+
+const cookies = new Cookies();
 
 let axiosConfig = {
     headers: {
         'Content-Type': 'application/json',
-        'authorization': TEST_TOKEN,
+        'authorization': cookies.get('token')
         // "Access-Control-Allow-Origin": "*",
     },
   };
+
   
 
 function registerUser(data) {

@@ -86,7 +86,7 @@ class CreateReviewForm extends React.Component {
                 </FormGroup>
 
                 <FormGroup controlId="rating">
-                    <FormLabel>Rating</FormLabel>
+                    <FormLabel className="required">Rating</FormLabel>
                     <Row>
                         <ReactStars
                             className="block-centered"
@@ -95,17 +95,17 @@ class CreateReviewForm extends React.Component {
                             edit={true}
                             size={24}
                             color2={'#ffd700'}
-                            half={false} // prevent half star ratings
+                            half={false} // disable half star ratings
                             onChange={this.updateRating}
                         />      
                     </Row>
                     <FormControl.Feedback type="invalid">
-                        Please enter your review.
+                        Please enter your rating.
                     </FormControl.Feedback>
                 </FormGroup>
 
                 <FormGroup controlId="reviewText">
-                    <FormLabel>Review</FormLabel>
+                    <FormLabel className="required">Review</FormLabel>
                     <FormControl 
                         as="textarea"
                         placeholder="Your Review..."

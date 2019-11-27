@@ -63,7 +63,6 @@ class HydrantViewer extends React.Component {
     }
 
     handleReviewCreate(newReview){
-        console.log(newReview);
         const  {reviews} = this.state; 
         const updatedReviewList = reviews; // create a client copy of the review list so that we could append a new review after submission
         createReview({ 
