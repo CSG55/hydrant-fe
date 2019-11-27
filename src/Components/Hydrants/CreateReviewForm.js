@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, FormControl, FormGroup, Form, FormLabel, Col} from 'react-bootstrap';
+import {Button, FormControl, FormGroup, Form, FormLabel, Col, Row} from 'react-bootstrap';
 import ReactStars from 'react-stars'
 
 // import ImageUploader from 'react-images-upload';
@@ -83,9 +83,27 @@ class CreateReviewForm extends React.Component {
                     <FormControl.Feedback type="invalid">
                         Please enter a title.
                     </FormControl.Feedback>
-
-
                 </FormGroup>
+
+                <FormGroup controlId="rating">
+                    <FormLabel>Rating</FormLabel>
+                    <Row>
+                        <ReactStars
+                            className="block-centered"
+                            value={rating}
+                            count={5}
+                            edit={true}
+                            size={24}
+                            color2={'#ffd700'}
+                            half={false} // prevent half star ratings
+                            onChange={this.updateRating}
+                        />      
+                    </Row>
+                    <FormControl.Feedback type="invalid">
+                        Please enter your review.
+                    </FormControl.Feedback>
+                </FormGroup>
+
                 <FormGroup controlId="reviewText">
                     <FormLabel>Review</FormLabel>
                     <FormControl 
@@ -99,24 +117,6 @@ class CreateReviewForm extends React.Component {
                     </FormControl.Feedback>
 
                 </FormGroup>
-
-                <FormGroup controlId="rating">
-                    <FormLabel>Rating</FormLabel>
-                    <ReactStars
-                        className="block-centered"
-                        value={rating}
-                        count={5}
-                        edit={true}
-                        size={24}
-                        color2={'#ffd700'}
-                        half={false} // prevent half star ratings
-                        onChange={this.updateRating}
-                    />      
-                    <FormControl.Feedback type="invalid">
-                        Please enter your review.
-                    </FormControl.Feedback>
-                </FormGroup>
-
                 <Button type="submit">
                 Submit
                 </Button>
