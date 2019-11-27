@@ -3,9 +3,10 @@ import {Card} from 'react-bootstrap';
 import sample_hydrant from '../../common/old-johnny4.jpg';
 import ReactStars from 'react-stars'
 import FlexContainer from '../../common/FlexContainer';
+import CreateReviewForm from './CreateReviewForm';
 import sampleMP4 from '../../common/sampleMP4.mp4';
 import sampleOGG from '../../common/sampleOGG.ogv';
-import {fetchHydrant} from '../../api/hydrants-api';
+import {fetchHydrant, createReview} from '../../api/hydrants-api';
 import MapContainer from '../../common/MapContainer';
 
 
@@ -19,13 +20,13 @@ const HydrantViewerCard = (props) => {
 };
 
 // component to display individual reviews
-const ReviewBox = ({name, count, review}) => {
+const ReviewBox = ({name, rating, review}) => {
     return (
         <React.Fragment>
             <strong> {name} </strong>
             <ReactStars
                 className="block-centered"
-                count={count}
+                count={rating}
                 edit={false}
                 size={24}
                 color2={'#ffd700'}
@@ -47,6 +48,7 @@ class HydrantViewer extends React.Component {
             long: null,
             lat: null,
         }
+        this.handleReviewCreate = this.handleReviewCreate.bind(this);
     }
 
     componentDidMount(){
@@ -59,6 +61,22 @@ class HydrantViewer extends React.Component {
             console.log("AXIOS ERROR: ", err);
         })
     }
+
+    handleReviewCreate(newReview){
+        console.log(newReview);
+        const  {reviews} = this.state; 
+        const updatedReviewList = reviews; // create a client copy of the review list so that we could append a new review after submission
+        createReview({ 
+            ...newReview,
+            hydrant_id:this.state.hydrant['0'].id,
+        }).then((res) => {
+            updatedReviewList.push(res.data)
+            this.setState({reviews: updatedReviewList});
+        }).catch((err) => {
+            console.log("AXIOS ERROR: ", err);
+        });
+    }
+
 
    render() {
     const {reviews, name, image_url, description, long, lat} = this.state;
@@ -77,6 +95,7 @@ class HydrantViewer extends React.Component {
                 </HydrantViewerCard>
                 <HydrantViewerCard>
                     <Card.Title> Reviews </Card.Title>
+                    <CreateReviewForm handleSubmit={this.handleReviewCreate}/>
                     {reviews.map(review => <ReviewBox name={review.title} rating={review.rating} review={review.review_text} />)}
                 </HydrantViewerCard>
             </FlexContainer>

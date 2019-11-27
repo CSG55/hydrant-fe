@@ -11,7 +11,7 @@ const nameFormatter = (cell, row) => {
 const averageRatingFormatter = (cell, row) => {
   if (cell.length===0) return "No Reviews"; //reviews array is empty
   const sumRatings = cell.reduce((a,b) => a + b.rating, 0); // initial sum is 0
-  return(`${sumRatings/cell.length} / 5`);
+  return(`${(sumRatings/cell.length).toFixed(2)} / 5`); // ex) 2.56/5
 }
 
 class HydrantResultsPage extends React.Component {

@@ -51,7 +51,6 @@ export class MapContainer extends React.Component {
   // display all map markers, and provide a link to the marker's individual page
   displayMarkers = () => {
     return this.props.hydrantList.map((hydrant, index) => {
-      console.log(index,hydrant);
       return (
         <Marker 
           key={index}
@@ -73,7 +72,6 @@ export class MapContainer extends React.Component {
   
   render() {
     const {editing, hydrantList} = this.props;
-    console.log(hydrantList[0].lat, hydrantList[0].long);
 
     if (editing) { // conditionally render a map with one moveable marker when editing prop is passed
       return (
