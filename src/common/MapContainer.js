@@ -11,8 +11,19 @@ export class MapContainer extends React.Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {},  
+      selectedPlace: {}, 
+      markers: [
+        {
+          name: "Initial position",
+          position: {
+            lat: 47.6062,
+            lng: -122.3321
+          }
+        }
+      ],  
+ 
     };
+    
 
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.onMapClicked = this.onMapClicked.bind(this);
