@@ -4,6 +4,7 @@ import SearchView from './Components/Search/SearchView';
 import HydrantViewer from './Components/Hydrants/HydrantViewer';
 import Homepage from './Components/Home/Homepage';
 import UserRegistration from './Components/Register/UserRegistration';
+import UserLogin from './Components/Register/UserLogin';
 import CreateHydrantForm from './Components/Hydrants/HydrantEditor';
 import HydrantNavbar from './Components/Home/HydrantNavbar';
 
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/hydrant/:id(\d+)" component={HydrantViewer} />
           <Route exact path="/search" component={SearchView} />
           <Route exact path="/register" component={UserRegistration} />
+          <Route exact path="/login" component={UserLogin} />
           <Route exact path="/create" component={CreateHydrantForm} />
           <Route path="/" component={Homepage} />
         </Switch>

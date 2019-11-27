@@ -13,7 +13,11 @@ let axiosConfig = {
 function registerUser(data) {
     return axios.post('http://localhost:5000/users/', data, axiosConfig);
 }
+function loginUser(data) {
+    return axios.post('http://localhost:5000/authenticate/', data, axiosConfig);
+}
 
 export {
     registerUser,
+    loginUser
 };

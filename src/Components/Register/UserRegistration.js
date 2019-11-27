@@ -3,6 +3,7 @@ import RegistrationForm from './RegistrationForm';
 import FormCard from '../../common/FormCard';
 
 import { registerUser } from "../../api/users-api";
+
 class UserRegistration extends React.Component {
    constructor(props) {
       super(props);

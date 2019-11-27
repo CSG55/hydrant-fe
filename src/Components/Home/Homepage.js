@@ -10,6 +10,9 @@ class Homepage extends React.Component {
             <FlexContainer>
                {/* Link allows us to push to the router history upon click. 
                This essentially navigates through the router */}
+               <Link to="/login">
+                  <button className="btn btn-primary">Login</button>
+               </Link>
                <Link to="/register">
                   <button className="btn btn-primary">Register for an Account</button>
                </Link>

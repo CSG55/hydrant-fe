@@ -86,7 +86,7 @@ class LoginForm extends React.Component {
 
             </FormGroup>
             <Button type="submit">
-            Submit
+            Login
             </Button>
         </Form>
         );
