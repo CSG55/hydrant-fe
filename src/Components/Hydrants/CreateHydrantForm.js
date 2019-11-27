@@ -51,6 +51,7 @@ class CreateHydrantForm extends React.Component {
             this.setState({errors}); // show predefined field errors 
         } else {
             this.props.handleSubmit({name, description, lat, long, image_url:''})// #######re-add pictures, video
+            
         }
     }
 

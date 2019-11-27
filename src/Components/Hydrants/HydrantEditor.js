@@ -16,9 +16,14 @@ class HydrantEditor extends React.Component {
    handleSubmit(hydrantSubmission){
       // An api call will be added here to submit these values
       console.log(hydrantSubmission);
-      createHydrant(hydrantSubmission);
-      // this.props.history.push('/hydrant/1'); // navigate to sample hydrant page
-   }
+      createHydrant(hydrantSubmission).then((res) => {
+         console.log(res);
+         this.props.history.push(`/hydrant/${res.id}`); // navigate to sample hydrant page
+      })
+      .catch((err) => {
+          console.log("AXIOS ERROR: ", err);
+      })
+}
    render() {
       return (
       <FormCard title ="Create Hydrant">
