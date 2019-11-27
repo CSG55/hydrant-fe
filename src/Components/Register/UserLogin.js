@@ -15,7 +15,7 @@ class UserLogin extends React.Component {
     handleSubmit(registrationInfo) {
         loginUser(registrationInfo).then((res) => {
             const cookies = new Cookies();
-            cookies.set('token', `TOKEN ${res.data.token}`, { path: '/', maxAge: 86400 }); // cookie expires in 24 hrs
+            cookies.set('token', `TOKEN ${res.data.token}`, { path: '/' });
             this.props.history.push('/'); // return to home after login
         }).catch((err) => {
             console.log("AXIOS ERROR: ", err);

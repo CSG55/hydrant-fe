@@ -14,7 +14,8 @@ class UserRegistration extends React.Component {
    handleSubmit(registrationInfo) {
       registerUser(registrationInfo).then((res) => {
          const cookies = new Cookies();
-         cookies.set('token', `TOKEN ${res.data.token}`, { path: '/', maxAge: 86400 }); // cookie expires in 24 hrs
+         cookies.set('token', `TOKEN ${res.data.token}`, { path: '/' });
+
          this.props.history.push('/'); // return to home after registration
       }).catch((err) => {
          console.log("AXIOS ERROR: ", err);
