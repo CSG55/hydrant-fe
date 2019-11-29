@@ -94,6 +94,7 @@ class HydrantViewer extends React.Component {
                 </HydrantViewerCard>
                 <HydrantViewerCard>
                     <Card.Title> Reviews </Card.Title>
+                    <h6> Add a Review </h6>
                     <CreateReviewForm handleSubmit={this.handleReviewCreate}/>
                     {reviews.map(review => <ReviewBox name={review.title} rating={review.rating} review={review.review_text} />)}
                 </HydrantViewerCard>

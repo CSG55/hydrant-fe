@@ -7,7 +7,7 @@ const cookies = new Cookies();
 let axiosConfig = {
     headers: {
         'Content-Type': 'application/json',
-        'authorization': cookies.get('token')
+        'authorization': cookies.get('token') ? cookies.get('token') : '', // if no token present in cookie, don't use one
         // "Access-Control-Allow-Origin": "*",
     },
   };

@@ -42,7 +42,7 @@ class CreateReviewForm extends React.Component {
             this.setState({errors}); // show predefined field errors 
         } else {
             this.props.handleSubmit({title, rating, review_text: reviewText});
-            // this.setState({title: "", reviewText: ""}); // reset form values
+            this.setState({title: "", reviewText: "", reviews: null, errors:{} }); // reset form values
         }
     }
 
@@ -66,8 +66,9 @@ class CreateReviewForm extends React.Component {
     }
 
     render() {
-        console.log(this.state);
             const {errors, title, reviewText, rating} = this.state;
+            console.log(errors.rating);
+
             return (
             <Form className="review-editor" onSubmit={this.onSubmit}>
                 <FormGroup controlId="title">
@@ -77,8 +78,7 @@ class CreateReviewForm extends React.Component {
                         placeholder="Review Title..."
                         onChange={this.updateTitle}
                         defaultValue={title}
-                        isInvalid={errors.name}
-                        required
+                        isInvalid={errors.title}
                     />
                     <FormControl.Feedback type="invalid">
                         Please enter a title.
@@ -97,11 +97,12 @@ class CreateReviewForm extends React.Component {
                             color2={'#ffd700'}
                             half={false} // disable half star ratings
                             onChange={this.updateRating}
-                        />      
+                        />   
                     </Row>
-                    <FormControl.Feedback type="invalid">
-                        Please enter your rating.
-                    </FormControl.Feedback>
+                    {errors.rating && 
+                        <div className="invalid-feedback custom-invalid-feedback">
+                            Please enter your rating.
+                        </div>}
                 </FormGroup>
 
                 <FormGroup controlId="reviewText">
@@ -111,6 +112,7 @@ class CreateReviewForm extends React.Component {
                         placeholder="Your Review..."
                         onChange={this.updateReviewText}
                         defaultValue={reviewText}
+                        isInvalid={errors.reviewText}
                     />
                     <FormControl.Feedback type="invalid">
                         Please enter your review.
