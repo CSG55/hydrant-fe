@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-import {TEST_TOKEN} from '../variables';
+import {BASE_URL} from '../variables';
 
 const cookies = new Cookies();
 
@@ -15,10 +15,10 @@ let axiosConfig = {
   
 
 function registerUser(data) {
-    return axios.post('http://localhost:5000/api/users/', data, axiosConfig);
+    return axios.post(`${BASE_URL}/api/users/`, data, axiosConfig);
 }
 function loginUser(data) {
-    return axios.post('http://localhost:5000/api/authenticate/', data, axiosConfig);
+    return axios.post(`${BASE_URL}/api/authenticate/`, data, axiosConfig);
 }
 
 export {
