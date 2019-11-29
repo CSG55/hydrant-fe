@@ -6,10 +6,10 @@ class HydrantSearchForm extends React.Component {
    constructor() {
       super();
         this.state = {
-          searchName: "",
+          searchName: null,
           searchRating: null,
-          lat:"",
-          long:"",
+          lat:null,
+          long:null,
       }
     this.updateName = this.updateName.bind(this);
     this.updateRating = this.updateRating.bind(this);
