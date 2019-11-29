@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-import {TEST_TOKEN} from '../variables';
+import {BASE_URL} from '../variables';
 
 const cookies = new Cookies();
 
@@ -14,14 +14,14 @@ let axiosConfig = {
   
 
 function createHydrant(data) {
-    return axios.post('http://localhost:5000/hydrants/', data, axiosConfig);
+    return axios.post(`${BASE_URL}/api/hydrants/`, data, axiosConfig);
 }
 function fetchHydrant(data) {
-    return axios.get('http://localhost:5000/hydrants/', {...axiosConfig, params: {id:data.id, name:data.searchName, rating: data.searchRating, long: data.long, lat: data.lat }})      
+    return axios.get(`${BASE_URL}/api/hydrants/`, {...axiosConfig, params: {id:data.id, name:data.searchName, rating: data.searchRating, long: data.long, lat: data.lat }});      
 }
 
 function createReview(data) {
-    return axios.post('http://localhost:5000/reviews/', data, axiosConfig);
+    return axios.post(`${BASE_URL}/api/reviews/`, data, axiosConfig);
 }
 
 export {
