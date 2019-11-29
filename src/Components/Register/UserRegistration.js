@@ -18,8 +18,8 @@ class UserRegistration extends React.Component {
 
          this.props.history.push('/'); // return to home after registration
       }).catch((err) => {
-         console.log("AXIOS ERROR: ", err);
-     })
+         console.log("AXIOS ERROR: ", err.response.data.username['0']);
+      })
 
    }
 

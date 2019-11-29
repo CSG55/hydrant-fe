@@ -18,7 +18,7 @@ class UserLogin extends React.Component {
             cookies.set('token', `TOKEN ${res.data.token}`, { path: '/', maxAge: 86400 }); // cookie expires in 24 hrs
             this.props.history.push('/'); // return to home after login
         }).catch((err) => {
-            console.log("AXIOS ERROR: ", err);
+            console.log("AXIOS ERROR: ", err.response.data.non_field_errors['0']);
         })
     }
 
