@@ -18,7 +18,7 @@ class UserRegistration extends React.Component {
 
          this.props.history.push('/'); // return to home after registration
       }).catch((err) => {
-         console.log("AXIOS ERROR: ", err.response.data.username['0']);
+         console.log("AXIOS ERROR: ", err.response.data.username['0']); // show "duplicate username error" in console - temporarily
       })
 
    }
