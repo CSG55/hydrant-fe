@@ -178,5 +178,8 @@ div.invalid-feedback {
   content: "*";
   color: red;
 }
+.invalid-feedback.custom-invalid-feedback{
+  display:block;
+}
 
 
