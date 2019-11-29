@@ -7,7 +7,7 @@ class HydrantSearchForm extends React.Component {
       super();
         this.state = {
           searchName: "",
-          searchRating: 'No filter',
+          searchRating: null,
           lat:"",
           long:"",
       }
@@ -21,9 +21,9 @@ class HydrantSearchForm extends React.Component {
    }
 
     onSubmit(e) {
-        const {searchName, searchRating} = this.state;
+        const {searchName, searchRating, long, lat} = this.state;
         e.preventDefault();
-        this.props.onSubmit({ searchName, searchRating });
+        this.props.onSubmit({ searchName, avg_rating: searchRating, long, lat });
     }
 
     //fetch the user's browser location
@@ -79,12 +79,12 @@ class HydrantSearchForm extends React.Component {
                     as = "select"
                     onChange={this.updateRating}
                 >
-                        <option defaultValue>No filter</option>
-                        <option>5 stars</option>
-                        <option>4 stars</option>
-                        <option>3 stars</option>
-                        <option>2 stars</option>
-                        <option>1 star</option>
+                        <option  value={null} defaultValue>No filter</option>
+                        <option value={5}>5 stars</option>
+                        <option value={4}>4 stars</option>
+                        <option value={3}>3 stars</option>
+                        <option value={2}>2 stars</option>
+                        <option value={1}>1 star</option>
 
                 </FormControl>
             </FormGroup>

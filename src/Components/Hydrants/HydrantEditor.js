@@ -1,6 +1,10 @@
 import React from 'react';
 import HydrantCreateForm from './CreateHydrantForm';
 import FormCard from '../../common/FormCard';
+import {createHydrant} from '../../api/hydrants-api';
+
+import '../../css/Hydrants.css';
+
 
 class HydrantEditor extends React.Component {
    constructor(props) {
@@ -12,8 +16,14 @@ class HydrantEditor extends React.Component {
    handleSubmit(hydrantSubmission){
       // An api call will be added here to submit these values
       console.log(hydrantSubmission);
-      this.props.history.push('/hydrant/1'); // navigate to sample hydrant page
-   }
+      createHydrant(hydrantSubmission).then((res) => {
+         console.log(res);
+         this.props.history.push(`/hydrant/${res.data.id}`); // navigate to sample hydrant page
+      })
+      .catch((err) => {
+          console.log("AXIOS ERROR: ", err);
+      })
+}
    render() {
       return (
       <FormCard title ="Create Hydrant">

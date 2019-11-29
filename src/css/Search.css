@@ -1,0 +1,13 @@
+@import './variables.css';
+
+/* margin and background color for search table container */
+.search-results-table .react-bootstrap-table {
+    margin:5px;
+    background-color:var(--plain-white);
+}
+  
+.search-results-map {
+    position: relative;
+    margin: 5px 5px 5px 5px;
+    height: 300px;
+}

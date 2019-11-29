@@ -3,20 +3,31 @@ import HydrantSearchForm from './HydrantSearchForm';
 import HydrantResultsPage from './HydrantResultsPage';
 import FormCard from '../../common/FormCard';
 
+import {fetchHydrant} from '../../api/hydrants-api';
+
+import '../../css/Search.css';
+
+
 class SearchView extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
          showResults: false,
+         searchResults:[],
       }
       
    this.handleSubmit = this.handleSubmit.bind(this);
    }
 
    handleSubmit(searchParams) {
-      // Api call will go here, return results
-      // console.log(searchParams)
-      this.setState({showResults: true});
+      console.log(searchParams);
+      fetchHydrant(searchParams).then(res => {
+          this.setState({searchResults: res.data, showResults: true});
+          console.log(res.data);
+      })
+      .catch((err) => {
+          console.log("AXIOS ERROR: ", err);
+      })
    }
 
    render() {
@@ -27,7 +38,7 @@ class SearchView extends React.Component {
          <FormCard title="Hydrant Search">
             <HydrantSearchForm onSubmit={this.handleSubmit}/>
          </FormCard>
-         : <HydrantResultsPage history={this.props.history}/> )
+         : <HydrantResultsPage history={this.props.history} searchResults={this.state.searchResults} /> ) 
       );
    }
 }
